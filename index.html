@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Why LIT is 🔥</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/league.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/github-dark.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown="content.md"
+					data-separator-vertical="^\r?\n--\r?\n"
+					data-separator-notes="^Note:"
+					data-charset="utf-8">
+				</section>
+			</div>
+		</div>
+		<script type="module">
+			import Reveal from './dist/reveal.esm.js';
+			import Markdown from './plugin/markdown/markdown.esm.js';
+			import Highlight from './plugin/highlight/highlight.esm.js';
+			import Notes from './plugin/notes/notes.esm.js';
+
+			Reveal.initialize({
+			  controls: false,
+			  progress: false,
+			  history: true,
+			  plugins: [ Markdown, Highlight, Notes ]
+			});
+		  </script>
+	</body>
+</html>
