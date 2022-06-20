@@ -1,13 +1,16 @@
 const activatedElements = [];
+const hljsClases = ['hljs-tag', 'hljs-name', 'hljs-attr', 'hljs-string', 'hljs-attribute', 'hljs-selector-pseudo'];
 
 const edit = (element) => {
 	element.setAttribute("contentEditable", "true");
 	const target = element.closest('section').querySelector('[data-edit]');
-	element.addEventListener('keyup', () => {
-		const text = element.textContent;
-		target.innerHTML = text;
-	});
-	activatedElements.push(element);
+	if (target) {
+		element.addEventListener('keyup', () => {
+			const text = element.textContent;
+			target.innerHTML = text;
+		});
+		activatedElements.push(element);
+	}
 };
 
 const Plugin = {
@@ -17,7 +20,7 @@ const Plugin = {
 			if (target.classList.contains('hljs') && target.getAttribute("contentEditable") === null) {
 				edit(target);
 			}
-			if (target.classList.contains('hljs-string')) {
+			if (Array.from(target.classList).some(cls => hljsClases.includes(cls))) {
 				const parent = target.closest(".hljs");
 				if (parent.getAttribute("contentEditable") === null) {
 					edit(parent);
