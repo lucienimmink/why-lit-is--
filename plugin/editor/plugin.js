@@ -1,23 +1,18 @@
+const activatedElements = [];
+
 const edit = (element) => {
 	element.setAttribute("contentEditable", "true");
 	const target = element.closest('section').querySelector('[data-edit]');
-	const targetAttributeName = target.getAttribute('data-edit');
 	element.addEventListener('keyup', () => {
-		const text = element.textContent.split('"')[1]; // the text variable
-		target.setAttribute(targetAttributeName, text);
-		const style = element.textContent.split(/<style>|<\/style>/)[1]; // the style variable
-		const color = style.split(':')[2].split(';')[0]; // the color variable
-		const r = document.querySelector(':root');
-		r.style.setProperty('--hw-color', color);
+		const text = element.textContent;
+		target.innerHTML = text;
 	});
+	activatedElements.push(element);
 };
 
 const Plugin = {
-
 	id: 'editor',
-
 	init: function( reveal ) {
-
 		reveal.getRevealElement().addEventListener( 'click', function( { target } ) {
 			if (target.classList.contains('hljs') && target.getAttribute("contentEditable") === null) {
 				edit(target);
@@ -29,15 +24,13 @@ const Plugin = {
 				}
 			}
 		} );
-
 	},
-
 	destroy: () => {
-
-		console.log('zoom zoom bye bye');
-
+		activatedElements.forEach((element) => {
+			element.removeAttribute("contentEditable");
+			element.removeEventListener('keyup');
+		});
 	}
-
 };
 
 export default () => Plugin;

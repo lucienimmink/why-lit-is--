@@ -284,3 +284,28 @@ export class MyElement extends LitElement {
   ]
 }
 ```
+
+---
+
+## Demo
+
+```html
+<style>
+  :root {
+    --hw-color: orange;
+  }
+</style>
+<hello-world type="amazing">Light DOM fallback</hello-world>
+```
+
+<div data-edit>
+<style>
+  :root {
+    --hw-color: orange;
+  }
+</style>
+<hello-world type="amazing">Light DOM fallback</hello-world>
+</div>
+<!-- if using in combination with the reveal.js editor plguin this will transform into live coding -->
+
+![extremely small overhead](/assets/hello-world-bundle-size.webp)<!-- .element: class="fragment fade-up" -->
