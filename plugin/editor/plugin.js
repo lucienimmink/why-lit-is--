@@ -15,7 +15,7 @@ const edit = (element) => {
 
 const Plugin = {
 	id: 'editor',
-	init: function( reveal ) {
+	init(reveal) {
 		reveal.getRevealElement().addEventListener( 'click', function( { target } ) {
 			if (target.classList.contains('hljs') && target.getAttribute("contentEditable") === null) {
 				edit(target);
@@ -28,7 +28,7 @@ const Plugin = {
 			}
 		} );
 	},
-	destroy: () => {
+	destroy() {
 		activatedElements.forEach((element) => {
 			element.removeAttribute("contentEditable");
 			element.removeEventListener('keyup');
