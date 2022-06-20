@@ -1,0 +1,1 @@
+import{r as e,_ as r,e as o,n as t,s as l,$ as s}from"./vendor-e351a7b6.js";let p=class extends l{constructor(){super(...arguments),this.type="wonderful"}render(){return s`<p>Hello ${this.type} world</p>`}};p.styles=e`p{color:var(--hw-color,green)}`,r([o()],p.prototype,"type",void 0),p=r([t("hello-world")],p);

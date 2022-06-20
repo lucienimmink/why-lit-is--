@@ -12,6 +12,10 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/github-dark.css">
+
+		<!-- demo's -->
+		<link rel="preload" href="./assets/wc/hello-world-88dcf8f4.js" as="script" crossorigin="anonymous">
+    	<link rel="preload" href="./assets/wc/vendor-e351a7b6.js" as="script" crossorigin="anonymous">
 	</head>
 	<body>
 		<div class="reveal">
@@ -28,13 +32,15 @@
 			import Markdown from './plugin/markdown/markdown.esm.js';
 			import Highlight from './plugin/highlight/highlight.esm.js';
 			import Notes from './plugin/notes/notes.esm.js';
+			import Editor from './plugin/editor/editor.esm.js';
 
 			Reveal.initialize({
 			  controls: false,
 			  progress: false,
 			  history: true,
-			  plugins: [ Markdown, Highlight, Notes ]
+			  plugins: [ Markdown, Highlight, Notes, Editor ]
 			});
-		  </script>
+		</script>
+		<script type="module" src="./assets/wc/hello-world-88dcf8f4.js"></script>
 	</body>
 </html>

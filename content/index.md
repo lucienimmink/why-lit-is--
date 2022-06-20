@@ -1,3 +1,34 @@
+# Why lit is 🔥
+
+--
+
+> Who has used React, Vue or Angular to create UI components?
+
+--
+
+> Who has shared those components with different teams or projects?
+
+--
+
+> And had to rewrite components?
+
+---
+
+## Lucien Immink, B.eng
+
+--
+
+![Web component logo](/assets/lucien-immink.webp)
+
+--
+
+Software Architect &</br>
+Developer Advocate @ iO</br>
+</br>
+Google Developer Expert
+
+---
+
 ## Web components
 
 ![Web component logo](/assets/wb%20component%20logo.webp)
@@ -153,7 +184,7 @@ import { customElement, property } from 'lit/decorators.js'
 export class HelloWorld extends LitElement {
   static styles = css`
     p {
-      color: green;
+      color: var(--hw-color, green);
     }
   `
 
@@ -327,3 +358,21 @@ export class MyElement extends LitElement {
   ]
 }
 ```
+
+--
+
+## Demo
+
+```html[0]
+<style>:root {
+  --hw-color: orange;
+}</style>
+<hello-world type="amazing">Light DOM fallback</hello-world>
+```
+
+<style>:root {
+  --hw-color: orange;
+}</style>
+<hello-world type="amazing" data-edit="type">Light DOM fallback</hello-world>
+
+![extremely small overhead](/assets/hello-world-bundle-size.webp)<!-- .element: class="fragment fade-up" -->
