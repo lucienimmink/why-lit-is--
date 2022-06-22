@@ -262,6 +262,9 @@
 
 .reveal img {
 	margin: var(--r-block-margin) 0;
+	&.circle {
+		border-radius: 50%;
+	}
 }
 
 

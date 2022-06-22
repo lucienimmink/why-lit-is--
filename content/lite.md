@@ -1,3 +1,26 @@
+# Why LIT is 🔥
+
+--
+
+> Who has used _React_, _Vue_ or _Angular_ to create UI components?
+
+--
+<div>
+
+> Who has shared those components with _different teams_ or _projects_?
+
+</div><!-- .element: class="fade-semi-out" -->
+
+<div>
+
+> Or has rewritten the project to a _new framework_?
+</div><!-- .element: class="fragment fade-in-then-semi-out" -->
+--
+
+> And had to _rewrite_ components?
+
+---
+
 ## Web components
 
 ![Web component logo](/assets/wb%20component%20logo.webp)
@@ -58,12 +81,13 @@ let regexp = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|
 ```
 <!-- .element: class="fragment fade-in-then-semi-out" -->
 
-```javascript
+```javascript[0|3]
 const str = 'Hello';
 const multiLineStr = 'Hello\nWorld'; //multi-line string 🤐
+const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"]}';
 const concat = "Hello " + type + " world";
 ```
-<!-- .element: class="fragment fade-in-then-semi-out" -->
+<!-- .element: class="fragment fade-in" -->
 
 --
 
@@ -98,7 +122,7 @@ const taggedFunction = (template, ...values) => {
 
 --
 
-Take template literals for rendering templates and combine them with web components for lifecycle management, event handling and encapsulation of style and function you get LIT.
+Take template literals for _rendering_ templates and combine them with web components for _lifecycle management_, _event handling_ and _encapsulation_ of style and function you get LIT.
 
 --
 
@@ -123,6 +147,8 @@ export class HelloWorld extends LitElement {
 }
 ```
 
+File: hello-world.ts<!-- .element: class="filename" -->
+
 --
 
 ```html[0|4]
@@ -134,46 +160,48 @@ export class HelloWorld extends LitElement {
 </html>
 ```
 
+File: index.html<!-- .element: class="filename" -->
+
 ![extremely small overhead](/assets/hello-world-bundle-size.webp)<!-- .element: class="fragment fade-up" -->
 
 --
 
-```js[0|8-14|10,12|1-3|4-6|11]
+```js[0|6|1-3|8]
 renderHeader() {
     return html`<div>Some fancy header</div>`
 }
-renderFooter() {
-    return html`<div>Some fancy footer</div>`
-}
-
 render() {
     return html`
         ${this.renderHeader()}
         <p>What a nice ${new Date().getHours() < 12 ? html`morning` : html`day`} </p>
-        ${this.renderFooter()}
+        <div>Some fancy footer</div>
     `
 }
 ```
 
 --
 
-## &lt;my-header&gt;
-
-```js
+```js[0]
 import { html, LitElement } from 'lit'
-import { customElement } from 'lit/decorators.js'
+import { customElement, property } from 'lit/decorators.js'
 
 @customElement('my-header')
 export class MyHeader extends LitElement {
+
+  @property()
+  adjective: string;
+
   render() {
-    return html`<div>Some fancy header</div>`
+    return html`<div>Some ${this.adjective} header</div>`
   }
 }
 ```
 
+File: components/my-header.ts<!-- .element: class="filename" -->
+
 --
 
-```js[0|4,5|11,13]
+```js[0|4,5|17,19]
 import { LitElement, html } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
@@ -182,15 +210,23 @@ import './my-footer.js'
 
 @customElement('my-page')
 class MyPage extends LitElement {
+  greeting() {
+    if (new Date().getHours() < 12) {
+      return html`morning`;
+    }
+    return html`day`;
+  }
   render() {
     return html`
-      <my-header></my-header>
-      <p>What a nice ${new Date().getHours() < 12 ? html`morning` : html`day`}</p>
+      <my-header adjective="fancy"></my-header>
+      <p>What a nice ${this.greeting()}</p>
       <my-footer></my-footer>
     `
   }
 }
 ```
+
+File: components/my-page.ts<!-- .element: class="filename" -->
 
 --
 
@@ -219,6 +255,8 @@ export class HelloWorld extends LitElement {
 }
 ```
 
+File: my-counter.ts<!-- .element: class="filename" -->
+
 --
 
 ## Styling
@@ -245,9 +283,11 @@ export class MyElement extends LitElement {
 }
 ```
 
+File: my-element.ts<!-- .element: class="filename" -->
+
 --
 
-## styling component
+## Styling component
 
 ```js[0|5,6]
 import { css } from 'lit'
@@ -263,6 +303,8 @@ export const buttonStyles = css`
   }
 `
 ```
+
+File: styles/index.ts<!-- .element: class="filename" -->
 
 --
 
@@ -285,6 +327,8 @@ export class MyElement extends LitElement {
 }
 ```
 
+File: my-element.ts<!-- .element: class="filename" -->
+
 ---
 
 ## Demo
@@ -306,6 +350,11 @@ export class MyElement extends LitElement {
 </style>
 <hello-world type="amazing">Light DOM fallback</hello-world>
 </div>
-<!-- if using in combination with the reveal.js editor plguin this will transform into live coding -->
 
-![extremely small overhead](/assets/hello-world-bundle-size.webp)<!-- .element: class="fragment fade-up" -->
+---
+
+## Getting started
+
+[💡 lit.dev](https://lit.dev/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+[👋 Hello World example](https://github.com/lucienimmink/lit-hello-world) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+[⚙️ Open Web Components Generator](https://open-wc.org/docs/development/generator/) <br /><!-- .element: class="fragment fade-in" -->

@@ -1,0 +1,93 @@
+/**
+ * League theme for reveal.js.
+ *
+ * This was the default theme pre-3.0.0.
+ *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+@font-face {
+	font-family: "TTCommonsPro";
+	src: url("/assets/fonts/TTCommonsPro-Medium.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reckless";
+	src: url("/assets/fonts/Reckless-RegularItalic.woff2") format("woff2");
+}
+
+// Override theme settings (see ../template/settings.scss)
+
+$mainFont: TTCommonsPro,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+$headingFont: TTCommonsPro,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+$codeFont: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+
+$headingTextTransform: 'initial';
+
+$mainColorMuted: #aaa;
+// $headingTextShadow: 0px 0px 6px rgba(0,0,0,0.2);
+// $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
+$heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
+
+$linkColor: #ed7f53;
+
+// Background generator
+@mixin bodyBackground() {
+	@include radial-gradient( rgb(4 45 160), rgb(54 95 217) );
+}
+
+// Change text colors against light slide backgrounds
+@include light-bg-text-color(#222);
+ 
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+.reveal {
+	blockquote {
+		font-style: normal;
+		font-family: $mainFont;
+	}
+	em,
+	blockquote em {
+		font-family: 'Reckless', sans-serif;
+	}
+	.filename {
+		width: 90%;
+		margin: -0.7em 0 0 5%;
+		font-size: 0.75em;
+		padding: 0.25em 0;
+		background: rgba(0, 0, 0, 0.25);
+	}
+	.icon {
+		width: 1.5em;
+		margin: 0;
+	}
+}
+// scrollbars on windows -----------------------
+.reveal .code-wrapper code {
+	&::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+		background-color: var(--r-background-color);
+		border-radius: 3px;
+		box-shadow: none;
+		border-width: 0;
+  	}
+	&::-webkit-scrollbar-corner {
+		background-color: var(--r-background-color);
+	}
+	&::-webkit-scrollbar-button {
+		display: none;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: var(--r-muted-color);
+	}
+}
+// ---------------------------------------------

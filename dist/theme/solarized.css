@@ -304,6 +304,9 @@ html * {
 .reveal img {
   margin: var(--r-block-margin) 0;
 }
+.reveal img.circle {
+  border-radius: 50%;
+}
 
 /*********************************************
  * LINKS
