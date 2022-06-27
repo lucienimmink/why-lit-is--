@@ -2,22 +2,7 @@
 
 --
 
-> Who has used _React_, _Vue_ or _Angular_ to create UI components?
-
---
-<div>
-
-> Who has shared those components with _different teams_ or _projects_?
-
-</div><!-- .element: class="fade-semi-out" -->
-
-<div>
-
-> Or has rewritten the project to a _new framework_?
-</div><!-- .element: class="fragment fade-in-then-semi-out" -->
---
-
-> And had to _rewrite_ components?
+> Last time...
 
 ---
 
@@ -25,6 +10,19 @@
 
 ![Web component logo](/assets/wb%20component%20logo.webp)
 
+--
+
+### &lt;album-art&gt;
+
+<style>
+  album-art {
+    display: inline-block;
+    width: 300px;
+  }
+</style>
+<album-art artist="ayreon" album="01011001"></album-art><!-- .element: class="fragment fade-in" -->
+<album-art artist="killswitch engage" album="The end of heartache"></album-art><!-- .element: class="fragment fade-in" -->
+<album-art artist="abba"></album-art><!-- .element: class="fragment fade-in" -->
 --
 
 Web components consist of:
