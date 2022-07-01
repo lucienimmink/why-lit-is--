@@ -30,16 +30,33 @@ $codeFont: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Cou
 
 $headingTextTransform: 'initial';
 
-$mainColorMuted: #aaa;
+$mainColorMuted: rgba(255, 255, 255, 0.5);
 // $headingTextShadow: 0px 0px 6px rgba(0,0,0,0.2);
 // $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
 $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
 
-$linkColor: #ed7f53;
-
 // Background generator
 @mixin bodyBackground() {
-	@include radial-gradient( rgb(4 45 160), rgb(54 95 217) );
+	html[data-theme="black"] & {
+		@include radial-gradient( #0f0f0f, #1f1f1f );
+		--r-link-color: #ed7f53;
+  		--r-link-color-hover: #f8ccba;
+	}
+	html[data-theme="blue"] & {
+		@include radial-gradient( #1a2f6a, #365fd9 );
+		--r-link-color: #ed7f53;
+  		--r-link-color-hover: #f8ccba;
+	}
+	html[data-theme="orange"] & {
+		@include radial-gradient( #743e29, #ed7f53 );
+		--r-link-color: #365fd9;
+  		--r-link-color-hover: #2947a3 ;
+	}
+	html[data-theme="rouge"] & {
+		@include radial-gradient( #4f1b31, #a13865 );
+		--r-link-color: #ed7f53;
+  		--r-link-color-hover: #f8ccba;
+	}
 }
 
 // Change text colors against light slide backgrounds
