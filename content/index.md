@@ -15,9 +15,6 @@
 
 > Or has rewritten the project to a _new framework_?
 </div><!-- .element: class="fragment fade-in-then-semi-out" -->
---
-
-> And had to _rewrite_ components?
 
 ---
 
@@ -389,7 +386,21 @@ File: my-element.ts<!-- .element: class="filename" -->
 
 ---
 
-### Demo
+### Custom Elements Manifest
+
+--
+
+> _Codegen_ for Web Components
+
+- Describes the API<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Tools for analyzing and displaying<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Automated<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+---
+
+### Demo's
+
+--
 
 ```html
 <style>
@@ -410,12 +421,19 @@ File: my-element.ts<!-- .element: class="filename" -->
 </div>
 <!-- if using in combination with the reveal.js editor plguin this will transform into live coding -->
 
+--
+
+### api-viewer
+
+<api-viewer src="./assets/wc/custom-elements.json"></api-viewer>
+
 ---
 
 ### Getting started
 
 [💡 lit.dev](https://lit.dev/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
 [👋 Hello World example](https://github.com/lucienimmink/lit-hello-world) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+[🤔 Custom Elements Manifest](https://custom-elements-manifest.open-wc.org/)<br /><!-- .element: class="fragment fade-in-then-semi-out" -->
 [⚙️ Open Web Components Generator](https://open-wc.org/docs/development/generator/) <br /><!-- .element: class="fragment fade-in" -->
 
 ---

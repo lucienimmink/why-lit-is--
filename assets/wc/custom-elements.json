@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/fg-configurator.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Favorite gifts configuration component.",
+          "name": "FgConfigurator",
+          "members": [
+            {
+              "kind": "field",
+              "name": "product",
+              "type": {
+                "text": "number"
+              },
+              "default": "-1",
+              "description": "Product identifier",
+              "attribute": "product"
+            },
+            {
+              "kind": "field",
+              "name": "locale",
+              "type": {
+                "text": "string"
+              },
+              "default": "'nl-NL'",
+              "description": "locale used to display the confiurator",
+              "attribute": "locale"
+            },
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "default": "'red'",
+              "description": "Chosen product colour.\nDisplay the confiurator defaulting to the chosen color",
+              "attribute": "color"
+            },
+            {
+              "kind": "method",
+              "name": "addToCart",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "addToQuote",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "requestPrintproof",
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "name": "add-to-cart",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Contains the configuration as JWT encoded string, returned by the API"
+            },
+            {
+              "name": "add-to-quote",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Contains the configuration as JWT encoded string, returned by the API"
+            },
+            {
+              "name": "request-printproof",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Contains the configuration as JWT encoded string, returned by the API"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "product",
+              "type": {
+                "text": "number"
+              },
+              "default": "-1",
+              "description": "Product identifier",
+              "fieldName": "product"
+            },
+            {
+              "name": "locale",
+              "type": {
+                "text": "string"
+              },
+              "default": "'nl-NL'",
+              "description": "locale used to display the confiurator",
+              "fieldName": "locale"
+            },
+            {
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "default": "'red'",
+              "description": "Chosen product colour.\nDisplay the confiurator defaulting to the chosen color",
+              "fieldName": "color"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "fg-configurator",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FgConfigurator",
+          "declaration": {
+            "name": "FgConfigurator",
+            "module": "src/fg-configurator.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "fg-configurator",
+          "declaration": {
+            "name": "FgConfigurator",
+            "module": "src/fg-configurator.ts"
+          }
+        }
+      ]
+    }
+  ]
+}
