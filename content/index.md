@@ -432,9 +432,14 @@ File: my-element.ts<!-- .element: class="filename" -->
 ### Getting started
 
 [💡 lit.dev](https://lit.dev/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-[👋 Hello World example](https://github.com/lucienimmink/lit-hello-world) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-[🤔 Custom Elements Manifest](https://custom-elements-manifest.open-wc.org/)<br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-[⚙️ Open Web Components Generator](https://open-wc.org/docs/development/generator/) <br /><!-- .element: class="fragment fade-in" -->
+[👋 github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+[🤔 custom-elements-manifest.open-wc.org](https://custom-elements-manifest.open-wc.org/)<br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+[⚙️ vitejs.dev/guide/](https://vitejs.dev/guide/#scaffolding-your-first-vite-project=) <br /><!-- .element: class="fragment fade-in" -->
+
+```bash
+npm create vite@latest my-lit-app -- --template lit-ts
+```
+<!-- .element: class="fragment fade-in" -->
 
 ---
 
