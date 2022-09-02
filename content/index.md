@@ -61,27 +61,18 @@ Array literals
 
 ```javascript
 let list = ['cat', 'dog', 'catdog']
+let anotherList = [1, null, { "property": "value:" }]
 ```
-<!-- .element: class="fragment fade-in-then-semi-out" -->
-
-```javascript
-let list = [1, null, { "property": "value:" }]
-```
-<!-- .element: class="fragment fade-in-then-semi-out" -->
+<!-- .element: class="fragment fade-in" -->
 
 --
 
 Boolean literals
 
 ```javascript
-true
+true || false
 ```
-<!-- .element: class="fragment fade-in-then-semi-out" -->
-
-```javascript
-false
-```
-<!-- .element: class="fragment fade-in-then-semi-out" -->
+<!-- .element: class="fragment fade-in" -->
 
 --
 
@@ -89,17 +80,11 @@ Numeric literals
 
 ```javascript
 let number = 1337
-```
-<!-- .element: class="fragment fade-in-then-semi-out" -->
-
-```javascript[1|2|3]
 let hexadecimalNumber = 0x2FF
 let octalNumber = 0o713
 let binaryNumber = 0b01011001
 ```
 <!-- .element: class="fragment fade-in" -->
-
-01011001 = "Y", an album by Ayreon (Arjen Lucassen) <!-- .element: class="fragment fade-in small muted" -->
 
 --
 
@@ -113,30 +98,25 @@ const person = {
     professions: [ 'Software Architect', 'Developer Advocate' ],
 }
 ```
-<!-- .element: class="fragment fade-in-then-semi-out" -->
-⚠️ JSON is not an Object Literal <!-- .element: class="fragment fade-in" -->
+<!-- .element: class="fragment fade-in" -->
 
 --
 
 RegExp literals
 
-```javascript
+```javascript[1|2]
 let regexp = /ab+c/g
+let simpleRegexp = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/
 ```
-<!-- .element: class="fragment fade-in-then-semi-out" -->
+<!-- .element: class="fragment fade-in" -->
 
-```javascript
-let regexp = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/
-```
-<!-- .element: class="fragment fade-in-then-semi-out" -->
-
-a yes the regular expression for a URL  <!-- .element: class="fragment fade-in small muted" -->
+a yes the regular expression for a URL  <!-- .element: class="fragment fade-in small" -->
 
 --
 
 String literals
 
-```javascript[1|2|3|4]
+```javascript
 const str = 'Hello';
 const multiLineStr = 'Hello\nWorld'; //multi-line string 🤐
 const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"]}';
@@ -148,11 +128,8 @@ const concat = "Hello " + type + " world";
 
 Template literals
 
-```javascript
+```javascript[1-7|8]
 const str = `Hello`;
-```
-
-```javascript[1-5|6|7]
 //multi-line string 😃
 const multiLineStr = `
 Hello 
@@ -161,7 +138,6 @@ World
 const template = `Hello ${type} world`;
 taggedFunction`Hello ${type} world`
 ```
-<!-- .element: class="fragment fade-in" -->
 
 ```javascript
 const taggedFunction = (template, ...values) => {
@@ -169,7 +145,7 @@ const taggedFunction = (template, ...values) => {
     // values = ['wonderful']
 }
 ```
-<!-- .element: class="fragment fade-in-then-semi-out" -->
+<!-- .element: class="fragment fade-in" -->
 
 ---
 
