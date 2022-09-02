@@ -362,6 +362,14 @@ File: my-element.ts<!-- .element: class="filename" -->
 
 ---
 
+### Vite
+
+--
+
+Some slides and examples about how easy it is to use VITE
+
+---
+
 ### Custom Elements Manifest
 
 --
