@@ -16,6 +16,10 @@
 > Or has rewritten the project to a _new framework_?
 </div><!-- .element: class="fragment fade-in-then-semi-out" -->
 
+--
+
+[comment]: <> (why is this an issue? can we fix this?)
+
 ---
 
 ## Lucien Immink, B.eng
@@ -33,18 +37,16 @@ Google Developer Expert
 
 ---
 
-## Web components
-
-![Web component logo](/assets/wb%20component%20logo.webp)
+## Web Components
 
 --
 
-Web components consist of:
+### Web Components
 
 - Templates<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Custom elements<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Shadow DOM<!-- .element: class="fragment fade-in-then-semi-out" -->
-- and love CSS variables<!-- .element: class="fragment fade-in-then-semi-out" -->
+- ❤️ CSS variables<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
 
@@ -420,17 +422,12 @@ Some slides and examples about how easy it is to use VITE
 [🤔 custom-elements-manifest.open-wc.org](https://custom-elements-manifest.open-wc.org/)<br /><!-- .element: class="fragment fade-in-then-semi-out" -->
 [⚙️ vitejs.dev/guide/](https://vitejs.dev/guide/#scaffolding-your-first-vite-project=) <br /><!-- .element: class="fragment fade-in" -->
 
-```bash
-npm create vite@latest my-lit-app -- --template lit-ts
-```
-<!-- .element: class="fragment fade-in" -->
-
 ---
 
 ## Thank you
 
 Contact me:
 
-[![Web component logo](/assets/io.svg)<!-- .element: class="icon" -->](https://www.iodigital.com) <br />
-[🦜 Twitter](https://twitter.com/lucienimmink) <br />
-[🏢 LinkedIn](https://www.linkedin.com/in/lucien-immink/) <br />
+[![Web component logo](/assets/io.svg)<!-- .element: class="icon" --> iodigital.com](https://www.iodigital.com) <br />
+[🦜 twitter.com/lucienimmink](https://twitter.com/lucienimmink) <br />
+[🏢 linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br />
