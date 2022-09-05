@@ -69,32 +69,32 @@ Google Developer Expert
 
 --
 
-Literals represent a value in JavaScript.</br>
+Literals represent a value in JavaScript.<br /><br />
 Fixed (no variable) value that you _literally_ provide in JavaScript.
 
 --
-
-<!-- can't I just show some of these on the same page? as fragments? -->
-
+<div>
 Array literals
 
 ```javascript
 let list = ['cat', 'dog', 'catdog']
-let anotherList = [1, null, { "property": "value:" }]
+let anotherList = [1, null, { "property": "value" }]
 ```
-<!-- .element: class="fragment fade-in" -->
 
---
+</div>
+<!-- .element: class="fragment fade-in-then-semi-out" -->
 
+<div>
 Boolean literals
 
 ```javascript
 true || false
 ```
-<!-- .element: class="fragment fade-in" -->
 
---
+</div>
+<!-- .element: class="fragment fade-in-then-semi-out" -->
 
+<div>
 Numeric literals
 
 ```javascript
@@ -103,10 +103,13 @@ let hexadecimalNumber = 0x2FF
 let octalNumber = 0o713
 let binaryNumber = 0b01011001
 ```
-<!-- .element: class="fragment fade-in" -->
+
+</div>
+<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 --
 
+<div>
 Object literals
 
 ```javascript
@@ -117,22 +120,22 @@ const person = {
     professions: [ 'Software Architect', 'Developer Advocate' ],
 }
 ```
-<!-- .element: class="fragment fade-in" -->
 
---
+</div>
+<!-- .element: class="fragment fade-in-then-semi-out" -->
 
+<div>
 RegExp literals
 
-```javascript[1|2]
+```javascript
 let regexp = /ab+c/g
 let simpleRegexp = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/
 ```
-<!-- .element: class="fragment fade-in" -->
 
-a yes the regular expression for a URL  <!-- .element: class="fragment fade-in small" -->
+</div>
+<!-- .element: class="fragment fade-in-then-semi-out" -->
 
---
-
+<div>
 String literals
 
 ```javascript
@@ -141,15 +144,16 @@ const multiLineStr = 'Hello\nWorld'; //multi-line string 🤐
 const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"]}';
 const concat = "Hello " + type + " world";
 ```
-<!-- .element: class="fragment fade-in" -->
+
+</div>
+<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 --
 
 Template literals
 
-```javascript[1-7|8]
+```javascript[1-6|7]
 const str = `Hello`;
-//multi-line string 😃
 const multiLineStr = `
 Hello 
 World
@@ -398,49 +402,63 @@ Some slides and examples about how easy it is to use VITE
 - Describes the API<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Tools for analyzing and displaying<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Automated<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Supported in storybook since 6.4<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+--
+
+### Example
+
+![fg-configurator](/assets/fg-configurator.webp)
+
+--
+
+## Code
+
+<div>
+
+```typescript
+/**
+ * Product identifier
+ */
+@property({ type: Number })
+product = -1;
+```
+
+File: /src/fg-configurator.ts<!-- .element: class="code-file" -->
+
+</div><!-- .element: class="fragment fade-in-then-semi-out" -->
+
+<div>
+
+```javascript
+import VitePluginCustomElementsManifest from 'vite-plugin-cem';
+export default defineConfig({
+  ...
+  plugins: [
+    VitePluginCustomElementsManifest({
+      files: ['./src/fg-configurator.ts'],
+      lit: true,
+    }),
+  ],
+});
+
+```
+
+File: vite.config.ts<!-- .element: class="code-file" -->
+
+</div><!-- .element: class="fragment fade-in-then-semi-out" -->
+
+--
+
+### &lt;api-viewer&gt;
+
+<api-viewer src="./assets/wc/custom-elements.json"></api-viewer>
 
 ---
 
 <!-- 
 This parts needs to be rewritten
 Move the api-explorer example to the CEM slides? Ditch the generic demo
--->
-
-### Demo's
-
---
-
-```html
-<style>
-  :root {
-    --hw-color: orange;
-  }
-</style>
-<hello-world type="amazing">Light DOM fallback</hello-world>
-```
-
-<div data-edit>
-<style>
-  :root {
-    --hw-color: orange;
-  }
-</style>
-<hello-world type="amazing">Light DOM fallback</hello-world>
-</div>
-<!-- if using in combination with the reveal.js editor plguin this will transform into live coding -->
-
---
-
-### api-viewer
-
-<api-viewer src="./assets/wc/custom-elements.json"></api-viewer>
-
----
-
-<!--
-
-Time for a recap, take-away is to start exploring and thus you need urls
-
 -->
 
 ### Getting started
