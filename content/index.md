@@ -424,7 +424,7 @@ Some slides and examples about how easy it is to use VITE
 product = -1;
 ```
 
-File: /src/fg-configurator.ts<!-- .element: class="code-file" -->
+File: /src/fg-configurator.ts<!-- .element: class="filename" -->
 
 </div><!-- .element: class="fragment fade-in-then-semi-out" -->
 
@@ -444,7 +444,7 @@ export default defineConfig({
 
 ```
 
-File: vite.config.ts<!-- .element: class="code-file" -->
+File: vite.config.ts<!-- .element: class="filename" -->
 
 </div><!-- .element: class="fragment fade-in-then-semi-out" -->
 
@@ -455,11 +455,6 @@ File: vite.config.ts<!-- .element: class="code-file" -->
 <api-viewer src="./assets/wc/custom-elements.json"></api-viewer>
 
 ---
-
-<!-- 
-This parts needs to be rewritten
-Move the api-explorer example to the CEM slides? Ditch the generic demo
--->
 
 ### Getting started
 
