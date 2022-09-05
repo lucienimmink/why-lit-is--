@@ -18,7 +18,11 @@
 
 --
 
-[comment]: <> (why is this an issue? can we fix this?)
+<!--
+  - Re-use (UI) components
+  - Be the 3rd party; need to
+  - Porting means more maintenance
+-->
 
 ---
 
@@ -50,6 +54,17 @@ Google Developer Expert
 
 ---
 
+<!-- 
+  - vanilla DOM APIs are low-level
+  - 99% of the time you want to do the same thing
+  - tools become a library
+  - close to the browser? Can we use browser APIs for templating?
+  - Let's explore one of those APIs: literals
+  - Note: don't spend too much time here!
+-->
+
+---
+
 ## Literals
 
 --
@@ -58,6 +73,8 @@ Literals represent a value in JavaScript.</br>
 Fixed (no variable) value that you _literally_ provide in JavaScript.
 
 --
+
+<!-- can't I just show some of these on the same page? as fragments? -->
 
 Array literals
 
@@ -384,6 +401,11 @@ Some slides and examples about how easy it is to use VITE
 
 ---
 
+<!-- 
+This parts needs to be rewritten
+Move the api-explorer example to the CEM slides? Ditch the generic demo
+-->
+
 ### Demo's
 
 --
@@ -414,6 +436,12 @@ Some slides and examples about how easy it is to use VITE
 <api-viewer src="./assets/wc/custom-elements.json"></api-viewer>
 
 ---
+
+<!--
+
+Time for a recap, take-away is to start exploring and thus you need urls
+
+-->
 
 ### Getting started
 
