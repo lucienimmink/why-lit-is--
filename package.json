@@ -35,7 +35,7 @@
     "@babel/preset-env": "^7.18.2",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-node-resolve": "^14.0.0",
     "api-viewer-element": "^1.0.0-pre.3",
     "babel-plugin-transform-html-import-to-string": "2.0.0",
     "colors": "^1.4.0",
