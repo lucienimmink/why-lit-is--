@@ -222,59 +222,71 @@ File: index.html<!-- .element: class="filename" -->
 
 ```js[0|6|1-3|8]
 renderHeader() {
-    return html`<div>Some fancy header</div>`
+  return html`<div>Some fancy header</div>`
 }
 render() {
-    return html`
-        ${this.renderHeader()}
-        <p>What a nice ${new Date().getHours() < 12 ? html`morning` : html`day`} </p>
-        <div>Some fancy footer</div>
-    `
+  return html`
+    ${this.renderHeader()}
+    <p>What a nice ${new Date().getHours() < 12 ? html`morning` : html`day`} </p>
+    <div>Some fancy footer</div>
+  `
 }
 ```
 
+File: components/my-element.ts<!-- .element: class="filename" -->
+
 --
 
-```js[0]
+```js[0|7,8|19]
 import { html, LitElement } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-@customElement('my-header')
-export class MyHeader extends LitElement {
+@customElement('my-footer')
+export class MyFooter extends LitElement {
 
-  @property()
-  adjective: string;
+  @property({ attribute: 'brand-name'})
+  brandName: string;
+  year: number;
+
+  constructor() {
+    super();
+    this.year = new Date().getFullYear();
+  }
 
   render() {
-    return html`<div>Some ${this.adjective} header</div>`
+    return html`<div>
+      &copy; ${this.year} ${this.brandName}
+      <slot></slot>
+    </div>`
   }
 }
 ```
 
-File: components/my-header.ts<!-- .element: class="filename" -->
+File: components/my-footer.ts<!-- .element: class="filename" -->
 
 --
 
-```js[0|4,5|17,19]
+```js[0|4|15-20]
 import { LitElement, html } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
-import './my-header.js'
 import './my-footer.js'
 
 @customElement('my-page')
 class MyPage extends LitElement {
-  greeting() {
-    if (new Date().getHours() < 12) {
-      return html`morning`;
-    }
-    return html`day`;
+  renderHeader() {
+    return html`<div>Some fancy header</div>`
   }
   render() {
     return html`
-      <my-header adjective="fancy"></my-header>
+      ${this.renderHeader()}
       <p>What a nice ${this.greeting()}</p>
-      <my-footer></my-footer>
+      <my-footer brand="iO">
+        <ul>
+          <li><a href="/privacy-policy">Privacy policy</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </my-footer>
     `
   }
 }
@@ -389,7 +401,63 @@ File: my-element.ts<!-- .element: class="filename" -->
 
 --
 
-Some slides and examples about how easy it is to use VITE
+> Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects
+
+- A dev server using native ES Modules<!-- .element: class="fragment fade-in-then-semi-out" -->
+- A build command to bundle code<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+--
+
+```bash
+npm create vite@latest my-app -- --template lit-ts
+```
+
+```javascript
+{
+  "scripts": {
+    "dev": "vite", // start dev server
+    "build": "vite build", // build for production
+    "preview": "vite preview" // locally preview production build
+  }
+}
+```
+
+File: package.json<!-- .element: class="filename" -->
+
+--
+
+### Application
+
+```javascript
+import { defineConfig } from 'vite';
+export default defineConfig({
+  build: {
+    entry: 'index.html'
+  }
+});
+
+```
+
+File: vite.config.js<!-- .element: class="filename" -->
+
+--
+
+### Library
+
+```javascript
+import { defineConfig } from 'vite';
+export default defineConfig({
+  build: {
+    lib: {
+      entry: 'src/my-element.ts',
+      formats: ['es']
+    }
+  }
+});
+
+```
+
+File: vite.config.js<!-- .element: class="filename" -->
 
 ---
 
@@ -444,7 +512,7 @@ export default defineConfig({
 
 ```
 
-File: vite.config.ts<!-- .element: class="filename" -->
+File: vite.config.js<!-- .element: class="filename" -->
 
 </div><!-- .element: class="fragment fade-in-then-semi-out" -->
 
