@@ -14,7 +14,7 @@
 
 --
 
-## What if we _separate_ the UI from the framework?
+## 🤔 What if we _separate_ the UI from the framework?
 
 ---
 
@@ -121,7 +121,7 @@ String literals
 
 ```javascript
 const str = 'Hello';
-const multiLineStr = 'Hello\nWorld'; //multi-line string 🤐
+const multiLineStr = 'Hello\nWorld';
 const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"]}';
 const concat = "Hello " + type + " world";
 ```
