@@ -5,24 +5,16 @@
 > Who has used _React_, _Vue_ or _Angular_ to create UI components?
 
 --
-<div>
 
-> Who has shared those components with _different teams_ or _projects_?
-
-</div><!-- .element: class="fade-semi-out" -->
-
-<div>
-
-> Or has rewritten the project to a _new framework_?
-</div><!-- .element: class="fragment fade-in-then-semi-out" -->
+> Who ran into issues while _upgrading_ those libraries?
 
 --
 
-<!--
-  - Re-use (UI) components
-  - Be the 3rd party; need to
-  - Porting means more maintenance
--->
+> Who has rewritten the project to a _new framework_?
+
+--
+
+## What if we _separate_ the UI from the framework?
 
 ---
 
@@ -41,7 +33,7 @@ Google Developer Expert
 
 ---
 
-## Web Components
+## Use the platform
 
 --
 
@@ -52,18 +44,7 @@ Google Developer Expert
 - Shadow DOM<!-- .element: class="fragment fade-in-then-semi-out" -->
 - ❤️ CSS variables<!-- .element: class="fragment fade-in-then-semi-out" -->
 
----
-
-<!-- 
-  - vanilla DOM APIs are low-level
-  - 99% of the time you want to do the same thing
-  - tools become a library
-  - close to the browser? Can we use browser APIs for templating?
-  - Let's explore one of those APIs: literals
-  - Note: don't spend too much time here!
--->
-
----
+--
 
 ## Literals
 
@@ -172,6 +153,15 @@ const taggedFunction = (template, ...values) => {
 
 ---
 
+## Evolution of a library
+
+- Web platform APIs are low-level <!-- .element: class="fragment fade-in-then-semi-out" -->
+- Add utility functions to wrap the APIs <!-- .element: class="fragment fade-in-then-semi-out" -->
+- Utility functions become a library <!-- .element: class="fragment fade-in-then-semi-out" -->
+- That stays close to the web platform APIs <!-- .element: class="fragment fade-in-then-semi-out" -->
+- That evolves with the web platform <!-- .element: class="fragment fade-in-then-semi-out" -->
+
+---
 ## LIT
 
 --
@@ -281,7 +271,7 @@ class MyPage extends LitElement {
     return html`
       ${this.renderHeader()}
       <p>What a nice ${this.greeting()}</p>
-      <my-footer brand="iO">
+      <my-footer brand-name="iO">
         <ul>
           <li><a href="/privacy-policy">Privacy policy</a></li>
           <li><a href="/faq">FAQ</a></li>
@@ -300,11 +290,11 @@ File: components/my-page.ts<!-- .element: class="filename" -->
 
 ```js[0|16|9-12|6-7|17]
 import { html, LitElement } from 'lit'
-import { customElement, property, eventOptions } from 'lit/decorators.js'
+import { customElement, state, eventOptions } from 'lit/decorators.js'
 
 @customElement('my-counter')
 export class HelloWorld extends LitElement {
-  @property()
+  @state()
   counter: number = 0
 
   @eventOptions({ passive: true })
@@ -440,6 +430,8 @@ export default defineConfig({
 
 File: vite.config.js<!-- .element: class="filename" -->
 
+<span>🤔 File can be removed if _this_ is the exact content</span> <!-- .element: class="fragment fade-in-then-semi-out small muted" -->
+
 --
 
 ### Library
@@ -474,7 +466,7 @@ File: vite.config.js<!-- .element: class="filename" -->
 
 --
 
-### Example
+### Skeleton component example
 
 ![fg-configurator](/assets/fg-configurator.webp)
 
@@ -498,7 +490,7 @@ File: /src/fg-configurator.ts<!-- .element: class="filename" -->
 
 <div>
 
-```javascript
+```javascript[0|7]
 import VitePluginCustomElementsManifest from 'vite-plugin-cem';
 export default defineConfig({
   ...
@@ -514,7 +506,7 @@ export default defineConfig({
 
 File: vite.config.js<!-- .element: class="filename" -->
 
-</div><!-- .element: class="fragment fade-in-then-semi-out" -->
+</div><!-- .element: class="fragment fade-in" -->
 
 --
 
@@ -527,9 +519,9 @@ File: vite.config.js<!-- .element: class="filename" -->
 ### Getting started
 
 [💡 lit.dev](https://lit.dev/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-[👋 github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+[⚙️ vitejs.dev/guide/](https://vitejs.dev/guide/#scaffolding-your-first-vite-project=) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
 [🤔 custom-elements-manifest.open-wc.org](https://custom-elements-manifest.open-wc.org/)<br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-[⚙️ vitejs.dev/guide/](https://vitejs.dev/guide/#scaffolding-your-first-vite-project=) <br /><!-- .element: class="fragment fade-in" -->
+[👋 github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) <br /><!-- .element: class="fragment fade-in" -->
 
 ---
 

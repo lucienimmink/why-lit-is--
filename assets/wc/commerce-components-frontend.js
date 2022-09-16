@@ -1,10 +1,10 @@
-import { r as u, e as c, s as p, $ as d, n as h } from "./vendor.a073a9d2.js";
-var f = Object.defineProperty, $ = Object.getOwnPropertyDescriptor, i = (a, r, l, e) => {
-  for (var t = e > 1 ? void 0 : e ? $(r, l) : r, s = a.length - 1, n; s >= 0; s--)
-    (n = a[s]) && (t = (e ? n(r, l, t) : n(t)) || t);
+import { r as u, e as c, s as d, $ as p, n as h } from "./vendor.a073a9d2.js";
+var f = Object.defineProperty, g = Object.getOwnPropertyDescriptor, i = (s, r, l, e) => {
+  for (var t = e > 1 ? void 0 : e ? g(r, l) : r, n = s.length - 1, a; n >= 0; n--)
+    (a = s[n]) && (t = (e ? a(r, l, t) : a(t)) || t);
   return e && t && f(r, l, t), t;
 };
-let o = class extends p {
+let o = class extends d {
   constructor() {
     super(...arguments), this.product = -1, this.locale = "nl-NL", this.color = "red";
   }
@@ -36,7 +36,7 @@ let o = class extends p {
     );
   }
   render() {
-    return d`
+    return p`
       <div>
         <h1>fg-configurator</h1>
         <h2>Attributes</h2>
@@ -58,6 +58,9 @@ let o = class extends p {
   }
 };
 o.styles = u`
+    h1 {
+      color: var(--fg-primary, blue);
+    }
     ul {
       list-style: none;
       padding: 0;
@@ -72,6 +75,10 @@ o.styles = u`
     }
     button {
       padding: 0.5rem 1rem;
+      background-color: var(--fg-cta, green);
+      padding: 1em 2em;
+      border: none;
+      color: white;
     }
   `;
 i([
