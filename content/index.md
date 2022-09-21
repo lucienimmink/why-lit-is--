@@ -6,7 +6,13 @@
 
 --
 
+> Who has used a _library_ for UI components ?
+
+<div>
+
 > Who ran into issues while _upgrading_ those libraries?
+
+</div><!-- .element: class="fragment fade-in" -->
 
 --
 
@@ -22,9 +28,7 @@
 
 --
 
-![Web component logo](/assets/lucien-immink.webp)<!-- .element: class="circle" -->
-
---
+![Lucien Immink](/assets/lucien-immink.webp)<!-- .element: class="circle" style="max-height: 20vh" -->
 
 Software Architect &</br>
 Developer Advocate @ _iO_</br>
@@ -191,7 +195,7 @@ export class HelloWorld extends LitElement {
 }
 ```
 
-File: hello-world.ts<!-- .element: class="filename" -->
+hello-world.ts<!-- .element: class="filename" -->
 
 --
 
@@ -204,7 +208,7 @@ File: hello-world.ts<!-- .element: class="filename" -->
 </html>
 ```
 
-File: index.html<!-- .element: class="filename" -->
+index.html<!-- .element: class="filename" -->
 
 ![extremely small overhead](/assets/hello-world-bundle-size.webp)<!-- .element: class="fragment fade-up" -->
 
@@ -223,7 +227,7 @@ render() {
 }
 ```
 
-File: components/my-element.ts<!-- .element: class="filename" -->
+components/my-element.ts<!-- .element: class="filename" -->
 
 --
 
@@ -252,7 +256,7 @@ export class MyFooter extends LitElement {
 }
 ```
 
-File: components/my-footer.ts<!-- .element: class="filename" -->
+components/my-footer.ts<!-- .element: class="filename" -->
 
 --
 
@@ -282,7 +286,7 @@ class MyPage extends LitElement {
 }
 ```
 
-File: components/my-page.ts<!-- .element: class="filename" -->
+components/my-page.ts<!-- .element: class="filename" -->
 
 --
 
@@ -311,7 +315,7 @@ export class HelloWorld extends LitElement {
 }
 ```
 
-File: my-counter.ts<!-- .element: class="filename" -->
+my-counter.ts<!-- .element: class="filename" -->
 
 --
 
@@ -339,13 +343,13 @@ export class MyElement extends LitElement {
 }
 ```
 
-File: my-element.ts<!-- .element: class="filename" -->
+my-element.ts<!-- .element: class="filename" -->
 
 --
 
 ### Styling component
 
-```js[0|5,6]
+```js[0]
 import { css } from 'lit'
 
 export const buttonStyles = css`
@@ -360,7 +364,7 @@ export const buttonStyles = css`
 `
 ```
 
-File: styles/index.ts<!-- .element: class="filename" -->
+styles/index.ts<!-- .element: class="filename" -->
 
 --
 
@@ -383,7 +387,7 @@ export class MyElement extends LitElement {
 }
 ```
 
-File: my-element.ts<!-- .element: class="filename" -->
+my-element.ts<!-- .element: class="filename" -->
 
 ---
 
@@ -412,7 +416,7 @@ npm create vite@latest my-app -- --template lit-ts
 }
 ```
 
-File: package.json<!-- .element: class="filename" -->
+package.json<!-- .element: class="filename" -->
 
 --
 
@@ -428,7 +432,7 @@ export default defineConfig({
 
 ```
 
-File: vite.config.js<!-- .element: class="filename" -->
+vite.config.js<!-- .element: class="filename" -->
 
 <span>🤔 File can be removed if _this_ is the exact content</span> <!-- .element: class="fragment fade-in-then-semi-out small muted" -->
 
@@ -449,7 +453,7 @@ export default defineConfig({
 
 ```
 
-File: vite.config.js<!-- .element: class="filename" -->
+vite.config.js<!-- .element: class="filename" -->
 
 ---
 
@@ -484,7 +488,7 @@ File: vite.config.js<!-- .element: class="filename" -->
 product = -1;
 ```
 
-File: /src/fg-configurator.ts<!-- .element: class="filename" -->
+/src/fg-configurator.ts<!-- .element: class="filename" -->
 
 </div><!-- .element: class="fragment fade-in-then-semi-out" -->
 
@@ -504,7 +508,7 @@ export default defineConfig({
 
 ```
 
-File: vite.config.js<!-- .element: class="filename" -->
+vite.config.js<!-- .element: class="filename" -->
 
 </div><!-- .element: class="fragment fade-in" -->
 
@@ -513,6 +517,14 @@ File: vite.config.js<!-- .element: class="filename" -->
 ### &lt;api-viewer&gt;
 
 <api-viewer src="./assets/wc/custom-elements.json"></api-viewer>
+
+---
+
+### LIT Usage
+
+[👟 shoelace.style](https://shoelace.style/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+[🦁 lion-web.netlify.app](https://lion-web.netlify.app/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+[🪨 bui.js.org - Blackstone UI](https://bui.js.org/) <br /><!-- .element: class="fragment fade-in" -->
 
 ---
 
@@ -529,6 +541,6 @@ File: vite.config.js<!-- .element: class="filename" -->
 
 Contact me:
 
-[![Web component logo](/assets/io.svg)<!-- .element: class="icon" --> iodigital.com](https://www.iodigital.com) <br />
+[![iO logo](/assets/io.svg)<!-- .element: class="icon icon-inline" --> iodigital.com](https://www.iodigital.com) <br />
 [🦜 twitter.com/lucienimmink](https://twitter.com/lucienimmink) <br />
 [🏢 linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br />
