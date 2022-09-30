@@ -30,7 +30,7 @@
 
 <!-- .slide: data-theme="blue" -->
 
-## Lucien Immink, B.eng
+## Lucien Immink, B.Eng.
 
 --
 
@@ -182,7 +182,7 @@ Take template literals for _rendering_ templates and combine them with web compo
 
 --
 
-```js[0|1|2-4|5|6-10|12|14-16]
+```js[0|1|2-4|5|6-10|12|15-17]
 import { html, css, LitElement } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
@@ -272,7 +272,7 @@ components/my-footer.ts<!-- .element: class="filename" -->
 import { LitElement, html } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
-import './my-footer.js'
+import './my-footer'
 
 @customElement('my-page')
 class MyPage extends LitElement {
@@ -379,7 +379,7 @@ styles/index.ts<!-- .element: class="filename" -->
 ```js[0|3,8]
 import { css, LitElement } from 'lit'
 import { customElement } from 'lit/decorators.js'
-import { buttonStyles } from './styles/index.ts'
+import { buttonStyles } from './styles'
 
 @customElement('my-element')
 export class MyElement extends LitElement {
@@ -410,6 +410,8 @@ my-element.ts<!-- .element: class="filename" -->
 
 --
 
+### Getting started with Vite
+
 ```bash
 npm create vite@latest my-app -- --template lit-ts
 ```
@@ -428,7 +430,7 @@ package.json<!-- .element: class="filename" -->
 
 --
 
-### Application
+### Vite config - Application
 
 ```javascript
 import { defineConfig } from 'vite';
@@ -446,7 +448,7 @@ vite.config.js<!-- .element: class="filename" -->
 
 --
 
-### Library
+### Vite config - Library
 
 ```javascript
 import { defineConfig } from 'vite';
@@ -532,30 +534,31 @@ vite.config.js<!-- .element: class="filename" -->
 
 ---
 
-### LIT Usage
+### Getting started
 
 <!-- .slide: data-theme="rouge" -->
 
-[👟 shoelace.style](https://shoelace.style/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-[🧾 pharos.jstor.org](https://pharos.jstor.org/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-[🦁 lion-web.netlify.app](https://lion-web.netlify.app/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-[🪨 bui.js.org - Blackstone UI](https://bui.js.org/) <br /><!-- .element: class="fragment fade-in" -->
+<span>💡 [lit.dev](https://lit.dev/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+<span>⚙️ [vitejs.dev/guide/](https://vitejs.dev/guide/#scaffolding-your-first-vite-project=) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+<span>🤔 [custom-elements-manifest.open-wc.org](https://custom-elements-manifest.open-wc.org/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+<span>👋 [github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) </span> <br /><!-- .element: class="fragment fade-in" -->
 
 ---
 
-### Getting started
+### UI libraries using LIT
 
-[💡 lit.dev](https://lit.dev/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-[⚙️ vitejs.dev/guide/](https://vitejs.dev/guide/#scaffolding-your-first-vite-project=) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-[🤔 custom-elements-manifest.open-wc.org](https://custom-elements-manifest.open-wc.org/)<br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-[👋 github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) <br /><!-- .element: class="fragment fade-in" -->
+<span>👟 [shoelace.style](https://shoelace.style/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+<span>🧾 [pharos.jstor.org](https://pharos.jstor.org/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+<span>🦁 [lion-web.netlify.app](https://lion-web.netlify.app/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+<span>🪨 [bui.js.org - Blackstone UI](https://bui.js.org/) </span> <br /><!-- .element: class="fragment fade-in" -->
 
 ---
+
 
 ## Thank you
 
 Contact me:
 
-[![iO logo](/assets/io.svg)<!-- .element: class="icon icon-inline" --> iodigital.com](https://www.iodigital.com) <br />
-[🦜 twitter.com/lucienimmink](https://twitter.com/lucienimmink) <br />
-[🏢 linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br />
+![iO logo](/assets/io.svg)<!-- .element: class="icon icon-inline" --> [iodigital.com](https://www.iodigital.com) <br />
+🦜 [twitter.com/lucienimmink](https://twitter.com/lucienimmink) <br />
+🏢 [linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br />

@@ -39,23 +39,19 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 @mixin bodyBackground() {
 	html[data-theme="black"] & {
 		@include radial-gradient( #0f0f0f, #1f1f1f );
-		--r-link-color: #ed7f53;
-  		--r-link-color-hover: #f8ccba;
+		--r-link-color: #fff;
 	}
 	html[data-theme="blue"] & {
 		@include radial-gradient( #1a2f6a, #365fd9 );
-		--r-link-color: #ed7f53;
-  		--r-link-color-hover: #f8ccba;
+		--r-link-color: #fff;
 	}
 	html[data-theme="orange"] & {
 		@include radial-gradient( #743e29, #ed7f53 );
-		--r-link-color: #365fd9;
-  		--r-link-color-hover: #2947a3 ;
+		--r-link-color: #fff;
 	}
 	html[data-theme="rouge"] & {
 		@include radial-gradient( #4f1b31, #a13865 );
-		--r-link-color: #ed7f53;
-  		--r-link-color-hover: #f8ccba;
+		--r-link-color: #fff;
 	}
 }
 
@@ -89,7 +85,21 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 	.icon-inline {
 		margin-bottom: -5px;
 	}
+	a {
+		background-repeat: no-repeat;
+		background-position: 100% 100%;
+		background-size: 100% 3px;
+		background-image: linear-gradient(var(--r-link-color), var(--r-link-color));
+		color: var(--r-link-color);
+		text-decoration: none;
+		transition: background-size .35s cubic-bezier(.645,.045,.355,1);
+		&:hover {
+			color: var(--r-link-color);
+			background-size: 0 3px;
+		}
+	}
 }
+
 // scrollbars on windows -----------------------
 .reveal .code-wrapper code {
 	&::-webkit-scrollbar {
@@ -119,10 +129,4 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 	transform: scale(0.76);
 	transform-origin: top center;
     margin: 0 auto;
-}
-
-.reveal album-art {
-	display: block;
-    margin: 0 auto;
-	height: 20vh;
 }
