@@ -1,5 +1,7 @@
 # Why LIT is 🔥
 
+<!-- .slide: data-theme="orange" -->
+
 --
 
 > Who has used _React_, _Vue_ or _Angular_ to create UI components?
@@ -16,6 +18,8 @@
 
 --
 
+<!-- .slide: data-theme="orange" -->
+
 > Who has rewritten the project to a _new framework_?
 
 --
@@ -23,6 +27,8 @@
 ## 🤔 What if we _separate_ the UI from the framework?
 
 ---
+
+<!-- .slide: data-theme="blue" -->
 
 ## Lucien Immink, B.eng
 
@@ -55,7 +61,7 @@ Google Developer Expert
 --
 
 Literals represent a value in JavaScript.<br /><br />
-Fixed (no variable) value that you _literally_ provide in JavaScript.
+> Fixed (no variable) value that you _literally_ provide in JavaScript.
 
 --
 <div>
@@ -103,6 +109,7 @@ const person = {
     surname: 'Immink',
     company: 'iO',
     professions: [ 'Software Architect', 'Developer Advocate' ],
+    currentLocation: "Frontmania"
 }
 ```
 
@@ -126,7 +133,7 @@ String literals
 ```javascript
 const str = 'Hello';
 const multiLineStr = 'Hello\nWorld';
-const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"]}';
+const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"], "currentLocation": "Frontmania"}';
 const concat = "Hello " + type + " world";
 ```
 
@@ -161,7 +168,8 @@ const taggedFunction = (template, ...values) => {
 
 - Web platform APIs are low-level <!-- .element: class="fragment fade-in-then-semi-out" -->
 - Add utility functions to wrap the APIs <!-- .element: class="fragment fade-in-then-semi-out" -->
-- Utility functions become a library <!-- .element: class="fragment fade-in-then-semi-out" -->
+  - LIT Element & LIT HTML
+- Utility functions become a library (LIT)<!-- .element: class="fragment fade-in-then-semi-out" -->
 - That stays close to the web platform APIs <!-- .element: class="fragment fade-in-then-semi-out" -->
 - That evolves with the web platform <!-- .element: class="fragment fade-in-then-semi-out" -->
 
@@ -459,6 +467,8 @@ vite.config.js<!-- .element: class="filename" -->
 
 ### Custom Elements Manifest
 
+<!-- .slide: data-theme="blue" -->
+
 --
 
 > _Codegen_ for Web Components
@@ -476,7 +486,7 @@ vite.config.js<!-- .element: class="filename" -->
 
 --
 
-## Code
+### Code example
 
 <div>
 
@@ -514,6 +524,8 @@ vite.config.js<!-- .element: class="filename" -->
 
 --
 
+<!-- .slide: data-theme="blue" -->
+
 ### &lt;api-viewer&gt;
 
 <api-viewer src="./assets/wc/custom-elements.json"></api-viewer>
@@ -522,7 +534,10 @@ vite.config.js<!-- .element: class="filename" -->
 
 ### LIT Usage
 
+<!-- .slide: data-theme="rouge" -->
+
 [👟 shoelace.style](https://shoelace.style/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+[🧾 pharos.jstor.org](https://pharos.jstor.org/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
 [🦁 lion-web.netlify.app](https://lion-web.netlify.app/) <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
 [🪨 bui.js.org - Blackstone UI](https://bui.js.org/) <br /><!-- .element: class="fragment fade-in" -->
 

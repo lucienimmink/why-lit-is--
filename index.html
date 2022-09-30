@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="blue">
+<html lang="en" data-theme="orange">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,6 +41,14 @@
 			  progress: false,
 			  history: true,
 			  plugins: [ Markdown, Highlight, Notes, Editor ]
+			});
+
+			Reveal.on('slidechanged', event => {
+				const slide = event.currentSlide;
+				const newTheme = slide?.dataset?.theme;
+				if (newTheme) {
+					document.querySelector('html').dataset.theme = newTheme;
+				}
 			});
 		</script>
 		<script type="module" src="./assets/wc/hello-world-88dcf8f4.js"></script>
