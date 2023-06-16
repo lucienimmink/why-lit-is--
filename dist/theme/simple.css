@@ -19,7 +19,6 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-main-font: Lato, sans-serif;
   --r-main-font-size: 40px;
   --r-main-color: #000;
-  --r-muted-color: #999;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
   --r-heading-font: News Cycle, Impact, sans-serif;
@@ -284,16 +283,11 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   font-size: smaller;
 }
 
-.reveal small,
-.reveal .small {
+.reveal small {
   display: inline-block;
   font-size: 0.6em;
   line-height: 1.2em;
   vertical-align: top;
-}
-
-.reveal .muted {
-  color: var(--r-muted-color);
 }
 
 .reveal small * {
@@ -302,9 +296,6 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .reveal img {
   margin: var(--r-block-margin) 0;
-}
-.reveal img.circle {
-  border-radius: 50%;
 }
 
 /*********************************************

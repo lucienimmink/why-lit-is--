@@ -245,15 +245,11 @@
 	font-size: smaller;
 }
 
-.reveal small,
-.reveal .small {
+.reveal small {
 	display: inline-block;
 	font-size: 0.6em;
 	line-height: 1.2em;
 	vertical-align: top;
-}
-.reveal .muted {
-	color: var(--r-muted-color);
 }
 
 .reveal small * {
@@ -262,9 +258,6 @@
 
 .reveal img {
 	margin: var(--r-block-margin) 0;
-	&.circle {
-		border-radius: 50%;
-	}
 }
 
 

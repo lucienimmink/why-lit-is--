@@ -19,7 +19,6 @@ section.has-light-background, section.has-light-background h1, section.has-light
   --r-main-font: Lato, sans-serif;
   --r-main-font-size: 40px;
   --r-main-color: #eee;
-  --r-muted-color: #aaa;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
   --r-heading-font: League Gothic, Impact, sans-serif;
@@ -290,16 +289,11 @@ section.has-light-background, section.has-light-background h1, section.has-light
   font-size: smaller;
 }
 
-.reveal small,
-.reveal .small {
+.reveal small {
   display: inline-block;
   font-size: 0.6em;
   line-height: 1.2em;
   vertical-align: top;
-}
-
-.reveal .muted {
-  color: var(--r-muted-color);
 }
 
 .reveal small * {
@@ -308,9 +302,6 @@ section.has-light-background, section.has-light-background h1, section.has-light
 
 .reveal img {
   margin: var(--r-block-margin) 0;
-}
-.reveal img.circle {
-  border-radius: 50%;
 }
 
 /*********************************************
@@ -372,21 +363,4 @@ section.has-light-background, section.has-light-background h1, section.has-light
   .backgrounds {
     background-color: var(--r-background-color);
   }
-}
-.reveal .code-wrapper code::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-  background-color: var(--r-background-color);
-  border-radius: 3px;
-  box-shadow: none;
-  border-width: 0;
-}
-.reveal .code-wrapper code::-webkit-scrollbar-corner {
-  background-color: var(--r-background-color);
-}
-.reveal .code-wrapper code::-webkit-scrollbar-button {
-  display: none;
-}
-.reveal .code-wrapper code::-webkit-scrollbar-thumb {
-  background: var(--r-muted-color);
 }

@@ -20,7 +20,6 @@ html * {
   --r-main-font: Lato, sans-serif;
   --r-main-font-size: 40px;
   --r-main-color: #657b83;
-  --r-muted-color: #586e75;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
   --r-heading-font: League Gothic, Impact, sans-serif;
@@ -285,16 +284,11 @@ html * {
   font-size: smaller;
 }
 
-.reveal small,
-.reveal .small {
+.reveal small {
   display: inline-block;
   font-size: 0.6em;
   line-height: 1.2em;
   vertical-align: top;
-}
-
-.reveal .muted {
-  color: var(--r-muted-color);
 }
 
 .reveal small * {
@@ -303,9 +297,6 @@ html * {
 
 .reveal img {
   margin: var(--r-block-margin) 0;
-}
-.reveal img.circle {
-  border-radius: 50%;
 }
 
 /*********************************************

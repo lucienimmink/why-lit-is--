@@ -31,7 +31,7 @@ const banner = `/*!
 * ${pkg.homepage}
 * MIT licensed
 *
-* Copyright (C) 2011-2022 Hakim El Hattab, https://hakim.se
+* Copyright (C) 2011-2023 Hakim El Hattab, https://hakim.se
 */\n`
 
 // Prevents warnings from opening too many test pages
@@ -48,6 +48,8 @@ const babelConfig = {
     presets: [[
         '@babel/preset-env',
         {
+            corejs: 3,
+            useBuiltIns: 'usage',
             modules: false
         }
     ]]
@@ -113,13 +115,18 @@ gulp.task('js-es6', () => {
         });
     });
 })
-gulp.task('js', gulp.parallel('js-es6'));
+gulp.task('js', gulp.parallel('js-es5', 'js-es6'));
 
 // Creates a UMD and ES module bundle for each of our
 // built-in plugins
 gulp.task('plugins', () => {
     return Promise.all([
-        { name: 'Editor', input: './plugin/editor/plugin.js', output: './plugin/editor/editor' },
+        { name: 'RevealHighlight', input: './plugin/highlight/plugin.js', output: './plugin/highlight/highlight' },
+        { name: 'RevealMarkdown', input: './plugin/markdown/plugin.js', output: './plugin/markdown/markdown' },
+        { name: 'RevealSearch', input: './plugin/search/plugin.js', output: './plugin/search/search' },
+        { name: 'RevealNotes', input: './plugin/notes/plugin.js', output: './plugin/notes/notes' },
+        { name: 'RevealZoom', input: './plugin/zoom/plugin.js', output: './plugin/zoom/zoom' },
+        { name: 'RevealMath', input: './plugin/math/plugin.js', output: './plugin/math/math' },
     ].map( plugin => {
         return rollup({
                 cache: cache[plugin.input],
@@ -271,7 +278,7 @@ gulp.task('package', gulp.series(() =>
             './lib/**',
             './images/**',
             './plugin/**',
-            './**.md'
+            './**/*.md'
         ],
         { base: './' }
     )
@@ -279,7 +286,7 @@ gulp.task('package', gulp.series(() =>
 
 ))
 
-gulp.task('reload', () => gulp.src(['*.html', '*.md'])
+gulp.task('reload', () => gulp.src(['**/*.html', '**/*.md'])
     .pipe(connect.reload()));
 
 gulp.task('serve', () => {
@@ -291,7 +298,7 @@ gulp.task('serve', () => {
         livereload: true
     })
 
-    gulp.watch(['*.html', '*.md'], gulp.series('reload'))
+    gulp.watch(['**/*.html', '**/*.md'], gulp.series('reload'))
 
     gulp.watch(['js/**'], gulp.series('js', 'reload', 'eslint'))
 
