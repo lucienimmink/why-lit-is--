@@ -1,4 +1,4 @@
-# Why LIT is 🔥
+# Why Lit is 🔥
 
 <!-- .slide: data-theme="orange" -->
 
@@ -40,6 +40,15 @@ Software Architect &</br>
 Developer Advocate @ _iO_</br>
 </br>
 Google Developer Expert
+
+---
+
+## Upcoming
+
+- Web, the platform<!-- .element: class="fragment fade-in" -->
+- Lit, the library<!-- .element: class="fragment fade-in" -->
+- Lit Labs, the experiments<!-- .element: class="fragment fade-in" -->
+- Custom Elements Manifest, the codegen<!-- .element: class="fragment fade-in" -->
 
 ---
 
@@ -109,7 +118,7 @@ const person = {
     surname: 'Immink',
     company: 'iO',
     professions: [ 'Software Architect', 'Developer Advocate' ],
-    currentLocation: "Frontmania"
+    currentLocation: 'WeAreDevelopers World Congress'
 }
 ```
 
@@ -133,8 +142,8 @@ String literals
 ```javascript
 const str = 'Hello';
 const multiLineStr = 'Hello\nWorld';
-const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"], "currentLocation": "Frontmania"}';
-const concat = "Hello " + type + " world";
+const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"], "currentLocation": "WeAreDevelopers World Congress"}';
+const concat = 'Hello ' + type + ' world';
 ```
 
 </div>
@@ -168,17 +177,18 @@ const taggedFunction = (template, ...values) => {
 
 - Web platform APIs are low-level <!-- .element: class="fragment fade-in-then-semi-out" -->
 - Add utility functions to wrap the APIs <!-- .element: class="fragment fade-in-then-semi-out" -->
-  - LIT Element & LIT HTML
-- Utility functions become a library (LIT)<!-- .element: class="fragment fade-in-then-semi-out" -->
+  - Lit Element & Lit HTML
+- Utility functions become a library (Lit)<!-- .element: class="fragment fade-in-then-semi-out" -->
 - That stays close to the web platform APIs <!-- .element: class="fragment fade-in-then-semi-out" -->
 - That evolves with the web platform <!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
-## LIT
+
+## Lit
 
 --
 
-Take template literals for _rendering_ templates and combine them with web components for _lifecycle management_, _event handling_ and _encapsulation_ of style and function you get LIT.
+Take template literals for _rendering_ templates and combine them with web components for _lifecycle management_, _event handling_ and _encapsulation_ of style and function you get Lit.
 
 --
 
@@ -399,71 +409,37 @@ my-element.ts<!-- .element: class="filename" -->
 
 ---
 
-### Vite
+## Lit Labs
+
+- Lit labs publish using the @lit-labs npm scope.<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Breaking changes are likely to occur more frequently<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Once graduated only @lit will receive updates<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Can be deprecated<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 --
 
-> Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects
+### Near graduation
 
-- A dev server using native ES Modules<!-- .element: class="fragment fade-in-then-semi-out" -->
-- A build command to bundle code<!-- .element: class="fragment fade-in-then-semi-out" -->
-
---
-
-### Getting started with Vite
-
-```bash
-npm create vite@latest my-app -- --template lit-ts
-```
-
-```javascript
-{
-  "scripts": {
-    "dev": "vite", // start dev server
-    "build": "vite build", // build for production
-    "preview": "vite preview" // locally preview production build
-  }
-}
-```
-
-package.json<!-- .element: class="filename" -->
+- context: controllers and decorators fur using the context protocol<!-- .element: class="fragment fade-in-then-semi-out" -->
+- react: react integration helpers<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 --
 
-### Vite config - Application
+### Under development
 
-```javascript
-import { defineConfig } from 'vite';
-export default defineConfig({
-  build: {
-    entry: 'index.html'
-  }
-});
-
-```
-
-vite.config.js<!-- .element: class="filename" -->
-
-<span>🤔 File can be removed if _this_ is the exact content</span> <!-- .element: class="fragment fade-in-then-semi-out small muted" -->
+- motion: Animation helpers for Lit templates<!-- .element: class="fragment fade-in-then-semi-out" -->
+- SSR: server-side rendering templates and components<!-- .element: class="fragment fade-in-then-semi-out" -->
+- task: Reactive controller for handling async tasks<!-- .element: class="fragment fade-in-then-semi-out" -->
+- testing: testing utilities for Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
+- virtualizer: viewport-based virtualization<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 --
 
-### Vite config - Library
+### Prototyping
 
-```javascript
-import { defineConfig } from 'vite';
-export default defineConfig({
-  build: {
-    lib: {
-      entry: 'src/my-element.ts',
-      formats: ['es']
-    }
-  }
-});
-
-```
-
-vite.config.js<!-- .element: class="filename" -->
+- analyser: static analyzer<!-- .element: class="fragment fade-in-then-semi-out" -->
+- cli: a command line tool for Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
+- router: component-oriented router API<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
 
@@ -539,7 +515,7 @@ vite.config.js<!-- .element: class="filename" -->
 <!-- .slide: data-theme="rouge" -->
 
 <span>💡 [lit.dev](https://lit.dev/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-<span>⚙️ [vitejs.dev/guide/](https://vitejs.dev/guide/#scaffolding-your-first-vite-project=) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
+<span>⚙️ [lit.dev/docs/libraries/labs/](https://lit.dev/docs/libraries/labs/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
 <span>🤔 [custom-elements-manifest.open-wc.org](https://custom-elements-manifest.open-wc.org/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
 <span>👋 [github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) </span> <br /><!-- .element: class="fragment fade-in" -->
 
@@ -550,7 +526,7 @@ vite.config.js<!-- .element: class="filename" -->
 <span>👟 [shoelace.style](https://shoelace.style/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
 <span>🧾 [pharos.jstor.org](https://pharos.jstor.org/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
 <span>🦁 [lion-web.netlify.app](https://lion-web.netlify.app/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-<span>🪨 [bui.js.org - Blackstone UI](https://bui.js.org/) </span> <br /><!-- .element: class="fragment fade-in" -->
+<span>🪨 [bui.js.org](https://bui.js.org/) </span> <br /><!-- .element: class="fragment fade-in" -->
 
 ---
 
