@@ -1,6 +1,6 @@
 # Why Lit is 🔥
 
-<!-- .slide: data-theme="orange" -->
+<!-- .slide: data-theme="blue" -->
 
 --
 
@@ -18,7 +18,7 @@
 
 --
 
-<!-- .slide: data-theme="orange" -->
+<!-- .slide: data-theme="blue" -->
 
 > Who has rewritten the project to a _new framework_?
 
@@ -28,7 +28,7 @@
 
 ---
 
-<!-- .slide: data-theme="blue" -->
+<!-- .slide: data-theme="calm-green" -->
 
 ## Lucien Immink, B.Eng.
 
@@ -52,6 +52,7 @@ Google Developer Expert
 
 ---
 
+<!-- .slide: data-theme="calm-pink" -->
 ## Use the platform
 
 --
@@ -183,6 +184,8 @@ const taggedFunction = (template, ...values) => {
 - That evolves with the web platform <!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
+
+<!-- .slide: data-theme="calm-green" -->
 
 ## Lit
 
@@ -445,7 +448,7 @@ my-element.ts<!-- .element: class="filename" -->
 
 ### Custom Elements Manifest
 
-<!-- .slide: data-theme="blue" -->
+<!-- .slide: data-theme="calm-beige" -->
 
 --
 
@@ -502,7 +505,7 @@ vite.config.js<!-- .element: class="filename" -->
 
 --
 
-<!-- .slide: data-theme="blue" -->
+<!-- .slide: data-theme="calm-beige" -->
 
 ### &lt;api-viewer&gt;
 
@@ -512,7 +515,7 @@ vite.config.js<!-- .element: class="filename" -->
 
 ### Getting started
 
-<!-- .slide: data-theme="rouge" -->
+<!-- .slide: data-theme="blue" -->
 
 <span>💡 [lit.dev](https://lit.dev/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
 <span>⚙️ [lit.dev/docs/libraries/labs/](https://lit.dev/docs/libraries/labs/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
@@ -520,16 +523,6 @@ vite.config.js<!-- .element: class="filename" -->
 <span>👋 [github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) </span> <br /><!-- .element: class="fragment fade-in" -->
 
 ---
-
-### UI libraries using LIT
-
-<span>👟 [shoelace.style](https://shoelace.style/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-<span>🧾 [pharos.jstor.org](https://pharos.jstor.org/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-<span>🦁 [lion-web.netlify.app](https://lion-web.netlify.app/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-<span>🪨 [bui.js.org](https://bui.js.org/) </span> <br /><!-- .element: class="fragment fade-in" -->
-
----
-
 
 ## Thank you
 

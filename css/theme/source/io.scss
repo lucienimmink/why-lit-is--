@@ -38,20 +38,40 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 // Background generator
 @mixin bodyBackground() {
 	html[data-theme="black"] & {
-		@include radial-gradient( #0f0f0f, #1f1f1f );
-		--r-link-color: #fff;
+		background: black;
+		--r-link-color: white;
+		--r-main-color: white;
+		--r-heading-color: white;
 	}
 	html[data-theme="blue"] & {
-		@include radial-gradient( #1a2f6a, #365fd9 );
-		--r-link-color: #fff;
+		background: #0017ee;
+		--r-link-color: white;
+		--r-main-color: white;
+		--r-heading-color: white;
 	}
-	html[data-theme="orange"] & {
-		@include radial-gradient( #743e29, #ed7f53 );
-		--r-link-color: #fff;
+	html[data-theme="calm-green"] & {
+		background: #c4d1ce;
+		--r-link-color: black;
+		--r-main-color: black;
+		--r-heading-color: black;
 	}
-	html[data-theme="rouge"] & {
-		@include radial-gradient( #4f1b31, #a13865 );
-		--r-link-color: #fff;
+	html[data-theme="calm-beige"] & {
+		background: #e1cfbf;
+		--r-link-color: black;
+		--r-main-color: black;
+		--r-heading-color: black ;
+	}
+	html[data-theme="calm-pink"] & {
+		background: #dcc8c2;
+		--r-link-color: black;
+		--r-main-color: black;
+		--r-heading-color: black ;
+	}
+	html[data-theme="calm-blue"] & {
+		background: #bdcad1;
+		--r-link-color: black;
+		--r-main-color: black;
+		--r-heading-color: black ;
 	}
 }
 
