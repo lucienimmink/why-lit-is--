@@ -37,7 +37,7 @@
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "api-viewer-element": "^1.0.0-pre.3",
-    "babel-plugin-transform-html-import-to-string": "0.0.1",
+    "babel-plugin-transform-html-import-to-string": "2.0.0",
     "colors": "^1.4.0",
     "core-js": "^3.12.1",
     "fitty": "^2.3.0",
