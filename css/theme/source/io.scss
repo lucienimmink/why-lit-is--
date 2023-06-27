@@ -150,3 +150,70 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 	transform-origin: top center;
     margin: 0 auto;
 }
+
+
+/*********************************************
+ * Mixins for readability of transitions
+ *********************************************/
+
+ @mixin transition-global($style) {
+	.reveal .slides section[data-transition=#{$style}],
+	.reveal.#{$style} .slides section:not([data-transition]) {
+		@content;
+	}
+}
+@mixin transition-stack($style) {
+	.reveal .slides section[data-transition=#{$style}].stack,
+	.reveal.#{$style} .slides section.stack {
+		@content;
+	}
+}
+@mixin transition-horizontal-past($style) {
+	.reveal .slides>section[data-transition=#{$style}].past,
+	.reveal .slides>section[data-transition~=#{$style}-out].past,
+	.reveal.#{$style} .slides>section:not([data-transition]).past {
+		@content;
+	}
+}
+@mixin transition-horizontal-future($style) {
+	.reveal .slides>section[data-transition=#{$style}].future,
+	.reveal .slides>section[data-transition~=#{$style}-in].future,
+	.reveal.#{$style} .slides>section:not([data-transition]).future {
+		@content;
+	}
+}
+
+@mixin transition-vertical-past($style) {
+	.reveal .slides>section>section[data-transition=#{$style}].past,
+	.reveal .slides>section>section[data-transition~=#{$style}-out].past,
+	.reveal.#{$style} .slides>section>section:not([data-transition]).past {
+		@content;
+	}
+}
+@mixin transition-vertical-future($style) {
+	.reveal .slides>section>section[data-transition=#{$style}].future,
+	.reveal .slides>section>section[data-transition~=#{$style}-in].future,
+	.reveal.#{$style} .slides>section>section:not([data-transition]).future {
+		@content;
+	}
+}
+
+/*********************************************
+ * SLIDE TRANSITION
+ * Aliased 'linear' for backwards compatibility
+ *********************************************/
+
+ @each $stylename in slide, linear {
+	@include transition-horizontal-past(#{$stylename}) {
+		transform: none;
+	}
+	@include transition-horizontal-future(#{$stylename}) {
+		transform: none;
+	}
+	@include transition-vertical-past(#{$stylename}) {
+		transform: none;
+	}
+	@include transition-vertical-future(#{$stylename}) {
+		transform: none;
+	}
+}
