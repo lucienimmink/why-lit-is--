@@ -183,8 +183,8 @@ Take template literals for _rendering_ templates and combine them with web compo
 --
 
 ```js[0|1|2-4|5|6-10|12|15-17]
-import { html, css, LitElement } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
 @customElement('hello-world')
 export class HelloWorld extends LitElement {
@@ -192,13 +192,13 @@ export class HelloWorld extends LitElement {
     p {
       color: var(--hw-color, green);
     }
-  `
+  `;
 
   @property()
-  type = 'wonderful'
+  type = 'wonderful';
 
   render() {
-    return html`<p>Hello ${this.type} world</p>`
+    return html`<p>Hello ${this.type} world</p>`;
   }
 }
 ```
