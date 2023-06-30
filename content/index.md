@@ -303,24 +303,24 @@ components/my-page.ts<!-- .element: class="filename" -->
 ### Event handling
 
 ```js[0|16|9-12|6-7|17]
-import { html, LitElement } from 'lit'
-import { customElement, state, eventOptions } from 'lit/decorators.js'
- 
+import { html, LitElement } from 'lit';
+import { customElement, state, eventOptions } from 'lit/decorators.js';
+
 @customElement('my-counter')
 export class HelloWorld extends LitElement {
   @state()
-  counter = 0
- 
+  counter = 0;
+
   @eventOptions({ passive: true })
   addCount() {
-    this.counter += 1
+    this.counter += 1;
   }
- 
+
   render() {
     return html`
       <button @click=${this.addCount}>Add more</button>
       <p>counter is now at: ${this.counter}</p>
-    `
+    `;
   }
 }
 ```
