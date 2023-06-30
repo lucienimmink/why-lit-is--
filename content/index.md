@@ -4,27 +4,15 @@
 
 --
 
-> Who has used _React_, _Vue_ or _Angular_ to create UI components?
+> Who is familiar with _web components_?
 
 --
 
-> Who has used a _library_ for UI components ?
-
-<div>
-
-> Who ran into issues while _upgrading_ those libraries?
-
-</div><!-- .element: class="fragment fade-in" -->
+> Who is familiar with _template literals_?
 
 --
 
-<!-- .slide: data-theme="blue" -->
-
-> Who has rewritten the project to a _new framework_?
-
---
-
-## 🤔 What if we _separate_ the UI from the framework?
+## 🤔 What if we _use_ Web Components and template literals together?
 
 ---
 
@@ -178,8 +166,7 @@ const taggedFunction = (template, ...values) => {
 
 - Web platform APIs are low-level <!-- .element: class="fragment fade-in-then-semi-out" -->
 - Add utility functions to wrap the APIs <!-- .element: class="fragment fade-in-then-semi-out" -->
-  - Lit Element & Lit HTML
-- Utility functions become a library (Lit)<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Utility functions become a library<!-- .element: class="fragment fade-in-then-semi-out" -->
 - That stays close to the web platform APIs <!-- .element: class="fragment fade-in-then-semi-out" -->
 - That evolves with the web platform <!-- .element: class="fragment fade-in-then-semi-out" -->
 
@@ -232,6 +219,8 @@ hello-world.ts<!-- .element: class="filename" -->
 index.html<!-- .element: class="filename" -->
 
 ![extremely small overhead](/assets/hello-world-bundle-size.webp)<!-- .element: class="fragment fade-up" -->
+
+<video src="/assets/amazing-developer-amazing.mp4" data-autoplay loop><!-- .element: class="fragment fade-up" -->
 
 --
 
@@ -316,17 +305,17 @@ components/my-page.ts<!-- .element: class="filename" -->
 ```js[0|16|9-12|6-7|17]
 import { html, LitElement } from 'lit'
 import { customElement, state, eventOptions } from 'lit/decorators.js'
-
+ 
 @customElement('my-counter')
 export class HelloWorld extends LitElement {
   @state()
-  counter: number = 0
-
+  counter = 0
+ 
   @eventOptions({ passive: true })
   addCount() {
     this.counter += 1
   }
-
+ 
   render() {
     return html`
       <button @click=${this.addCount}>Add more</button>
@@ -337,6 +326,10 @@ export class HelloWorld extends LitElement {
 ```
 
 my-counter.ts<!-- .element: class="filename" -->
+
+--
+
+<video src="/assets/counter.mp4" data-autoplay loop>
 
 --
 
@@ -421,28 +414,19 @@ my-element.ts<!-- .element: class="filename" -->
 
 --
 
-### Near graduation
+### Lit Labs
 
-- context: controllers and decorators fur using the context protocol<!-- .element: class="fragment fade-in-then-semi-out" -->
 - react: react integration helpers<!-- .element: class="fragment fade-in-then-semi-out" -->
-
---
-
-### Under development
-
 - motion: Animation helpers for Lit templates<!-- .element: class="fragment fade-in-then-semi-out" -->
 - SSR: server-side rendering templates and components<!-- .element: class="fragment fade-in-then-semi-out" -->
 - task: Reactive controller for handling async tasks<!-- .element: class="fragment fade-in-then-semi-out" -->
 - testing: testing utilities for Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
 - virtualizer: viewport-based virtualization<!-- .element: class="fragment fade-in-then-semi-out" -->
+- router: component-oriented router API<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 --
 
-### Prototyping
-
-- analyser: static analyzer<!-- .element: class="fragment fade-in-then-semi-out" -->
-- cli: a command line tool for Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
-- router: component-oriented router API<!-- .element: class="fragment fade-in-then-semi-out" -->
+<video src="/assets/virtualizer.mp4" data-autoplay loop>
 
 ---
 
