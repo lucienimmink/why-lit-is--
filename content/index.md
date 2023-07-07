@@ -70,22 +70,23 @@ Literals represent a value in JavaScript.<br /><br />
 > Fixed (no variable) value that you _literally_ provide in JavaScript.
 
 --
-<div>
-Array literals
-
-```javascript
-let list = ['cat', 'dog', 'catdog']
-let anotherList = [1, null, { "property": "value" }]
-```
-
-</div>
-<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 <div>
 Boolean literals
 
 ```javascript
 true || false
+```
+
+</div>
+<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+<div>
+Array literals
+
+```javascript
+let list = ['cat', 'dog', 'catdog']
+let anotherList = [1, null, { "property": "value" }]
 ```
 
 </div>
@@ -448,8 +449,8 @@ export class MyElement extends LitElement {
 - SSR: server-side rendering templates and components<!-- .element: class="fragment fade-in-then-semi-out" -->
 - task: Reactive controller for handling async tasks<!-- .element: class="fragment fade-in-then-semi-out" -->
 - testing: testing utilities for Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
-- virtualizer: viewport-based virtualization<!-- .element: class="fragment fade-in-then-semi-out" -->
 - router: component-oriented router API<!-- .element: class="fragment fade-in-then-semi-out" -->
+- virtualizer: viewport-based virtualization<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 --
 
@@ -469,6 +470,10 @@ export class MyElement extends LitElement {
 - Tools for analyzing and displaying<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Automated<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Supported in storybook since 6.4<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+--
+
+## Skeleton components
 
 --
 
