@@ -20,7 +20,7 @@
 
 --
 
-### 💡_inside_ web components!
+### _inside_ web components! 💡
 
 ---
 
@@ -211,7 +211,9 @@ export class HelloWorld extends LitElement {
 }
 ```
 
-hello-world.ts<!-- .element: class="filename" -->
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> hello-world.ts
+</p><!-- .element: class="filename" -->
 
 --
 
@@ -224,7 +226,9 @@ hello-world.ts<!-- .element: class="filename" -->
 </html>
 ```
 
-index.html<!-- .element: class="filename" -->
+<p>
+  <img src="/assets/icons/html.svg" class="icon icon-inline" alt=""> index.html
+</p><!-- .element: class="filename" -->
 
 ![extremely small overhead](/assets/hello-world-bundle-size.webp)<!-- .element: class="fragment fade-up w-90" -->
 
@@ -247,7 +251,9 @@ render() {
 }
 ```
 
-components/my-element.ts<!-- .element: class="filename" -->
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> components/my-element.ts
+</p><!-- .element: class="filename" -->
 
 --
 
@@ -276,7 +282,9 @@ export class MyFooter extends LitElement {
 }
 ```
 
-components/my-footer.ts<!-- .element: class="filename" -->
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> components/my-footer.ts
+</p><!-- .element: class="filename" -->
 
 --
 
@@ -306,7 +314,9 @@ class MyPage extends LitElement {
 }
 ```
 
-components/my-page.ts<!-- .element: class="filename" -->
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> components/my-page.ts
+</p><!-- .element: class="filename" -->
 
 --
 
@@ -335,7 +345,9 @@ export class HelloWorld extends LitElement {
 }
 ```
 
-my-counter.ts<!-- .element: class="filename" -->
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> components/my-counter.ts
+</p><!-- .element: class="filename" -->
 
 --
 
@@ -366,7 +378,9 @@ export class MyElement extends LitElement {
 }
 ```
 
-my-element.ts<!-- .element: class="filename" -->
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> components/my-element.ts
+</p><!-- .element: class="filename" -->
 
 --
 
@@ -387,7 +401,9 @@ export const buttonStyles = css`
 `
 ```
 
-styles/index.ts<!-- .element: class="filename" -->
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> styles/index.ts
+</p><!-- .element: class="filename" -->
 
 --
 
@@ -410,7 +426,9 @@ export class MyElement extends LitElement {
 }
 ```
 
-my-element.ts<!-- .element: class="filename" -->
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> my-element.ts
+</p><!-- .element: class="filename" -->
 
 ---
 
@@ -472,7 +490,9 @@ my-element.ts<!-- .element: class="filename" -->
 product = -1;
 ```
 
-/src/fg-configurator.ts<!-- .element: class="filename" -->
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> src/fg-configurator.ts
+</p><!-- .element: class="filename" -->
 
 </div><!-- .element: class="fragment fade-in-then-semi-out" -->
 
@@ -492,7 +512,9 @@ export default defineConfig({
 
 ```
 
-vite.config.js<!-- .element: class="filename" -->
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> vite.config.js
+</p><!-- .element: class="filename" -->
 
 </div><!-- .element: class="fragment fade-in" -->
 

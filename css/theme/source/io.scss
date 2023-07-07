@@ -91,26 +91,28 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 		box-shadow: var(--r-heading1-text-shadow);
 		background-color: rgba(0, 0, 0, 0.15);
 
-		> :before {
+		> :before, > :after {
 			content: '"';
-			font-size: 4rem;
-			position: absolute;
+			font-size: 5rem;
+			position: absolute;			
+			font-family: "felix titling", "perpetua-titling", sans-serif;
+			top: 0px;
+		}
+
+		> :before {
 			left: 10px;
-			top: 10px;
-			font-family: reckless;
+			
 		}
 		> :after {
-			content: '"';
-			font-size: 4rem;
-			position: absolute;
 			right: 10px;
-			top: 10px;
-			font-family: reckless;
 		}
 
 		P {
 			padding-inline: 1rem;
 		}
+	}
+	pre code {
+		overflow-x : hidden;
 	}
 	pre code:first-child {
 		box-shadow: var(--r-heading1-text-shadow);
@@ -118,6 +120,13 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 	em,
 	blockquote em {
 		font-family: 'Reckless', sans-serif;
+	}
+	.icon {
+		width: 1.5em;
+		margin: 0;
+	}
+	.icon-inline {
+		margin-bottom: -5px;
 	}
 	.filename {
 		width: 90%;
@@ -127,13 +136,13 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 		background: var(--r-background-color);
 		box-shadow: var(--r-heading1-text-shadow);
 		color: white;
-	}
-	.icon {
-		width: 1.5em;
-		margin: 0;
-	}
-	.icon-inline {
-		margin-bottom: -5px;
+
+		.icon {
+			width: 1em;
+		}
+
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
 	}
 	a {
 		background-repeat: no-repeat;
