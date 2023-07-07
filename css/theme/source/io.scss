@@ -111,6 +111,10 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 		P {
 			padding-inline: 1rem;
 		}
+		video {
+			box-shadow: var(--r-heading1-text-shadow);
+			border-radius: 5px;
+		}
 	}
 	pre code:first-child {
 		box-shadow: var(--r-heading1-text-shadow);
