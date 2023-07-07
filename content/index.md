@@ -4,15 +4,23 @@
 
 --
 
-> Who is familiar with _web components_?
+### Who is familiar with _web components_?
 
 --
 
-> Who is familiar with _template literals_?
+### With _vanilla_ DOM manipulation?
 
 --
 
-## 🤔 What if we _use_ Web Components and template literals together?
+### What about _template literals_?
+
+--
+
+### 🤔 What if we use _template literals_ for DOM manipulation...
+
+--
+
+### 💡_inside_ web components!
 
 ---
 
@@ -178,7 +186,7 @@ const taggedFunction = (template, ...values) => {
 
 --
 
-Take template literals for _rendering_ templates and combine them with web components for _lifecycle management_, _event handling_ and _encapsulation_ of style and function you get Lit.
+> Take template literals for _rendering_ templates and combine them with web components for _lifecycle management_, _event handling_ and _encapsulation_ of style and function you get Lit.
 
 --
 
@@ -218,9 +226,11 @@ hello-world.ts<!-- .element: class="filename" -->
 
 index.html<!-- .element: class="filename" -->
 
-![extremely small overhead](/assets/hello-world-bundle-size.webp)<!-- .element: class="fragment fade-up" -->
+![extremely small overhead](/assets/hello-world-bundle-size.webp)<!-- .element: class="fragment fade-up w-90" -->
 
-<video src="/assets/amazing-developer-amazing.mp4" data-autoplay loop><!-- .element: class="fragment fade-up" -->
+--
+
+<video src="/assets/amazing-developer-amazing.mp4" data-autoplay loop><!-- .element: class="h-90" -->
 
 --
 
@@ -329,8 +339,7 @@ my-counter.ts<!-- .element: class="filename" -->
 
 --
 
-<video src="/assets/counter.mp4" data-autoplay loop>
-
+<video src="/assets/counter.mp4" data-autoplay loop><!-- .element: class="h-90" -->
 --
 
 ### Styling
@@ -426,7 +435,7 @@ my-element.ts<!-- .element: class="filename" -->
 
 --
 
-<video src="/assets/virtualizer.mp4" data-autoplay loop>
+<video src="/assets/virtualizer.mp4" data-autoplay loop><!-- .element: class="h-90" -->
 
 ---
 
@@ -436,7 +445,7 @@ my-element.ts<!-- .element: class="filename" -->
 
 --
 
-> _Codegen_ for Web Components
+### _Codegen_ for Web Components
 
 - Describes the API<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Tools for analyzing and displaying<!-- .element: class="fragment fade-in-then-semi-out" -->
@@ -447,7 +456,7 @@ my-element.ts<!-- .element: class="filename" -->
 
 ### Skeleton component example
 
-![fg-configurator](/assets/fg-configurator.webp)
+![fg-configurator](/assets/fg-configurator.webp)<!-- .element: class="w-80" -->
 
 --
 
