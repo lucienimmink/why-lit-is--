@@ -161,6 +161,10 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 		border-radius: 50%;
 		box-shadow: var(--r-heading1-text-shadow);
 	}
+	.image {
+		border-radius: 5px;
+		box-shadow: var(--r-heading1-text-shadow);
+	}
 	video {
 		box-shadow: var(--r-heading1-text-shadow);
 		border-radius: 5px;

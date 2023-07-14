@@ -44,12 +44,29 @@ Google Developer Expert
 - Web, the platform<!-- .element: class="fragment fade-in" -->
 - Lit, the library<!-- .element: class="fragment fade-in" -->
 - Lit Labs, the experiments<!-- .element: class="fragment fade-in" -->
-- Custom Elements Manifest, the codegen<!-- .element: class="fragment fade-in" -->
 
 ---
 
 <!-- .slide: data-theme="calm-pink" -->
 ## Use the platform
+
+--
+
+![Real media](/assets/real-media.webp)<!-- .element: class="image" -->
+
+--
+
+![Sifr](/assets/sifr.webp)<!-- .element: class="image" -->
+
+--
+
+<!-- .slide: data-background-image="/assets/flash-dead.webp" -->
+
+--
+
+### What about
+
+![nested divs](/assets/nested-divs.webp)<!-- .element: class="image" -->
 
 --
 
@@ -59,6 +76,32 @@ Google Developer Expert
 - Custom elements<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Shadow DOM<!-- .element: class="fragment fade-in-then-semi-out" -->
 - ❤️ CSS variables<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+--
+
+### What about
+
+```js
+document.body.onload = addElement;
+function addElement() {
+  // create a new div element
+  const newDiv = document.createElement("div");
+
+  // and give it some content
+  const newContent = document.createTextNode("Hello Berlin!");
+
+  // add the text node to the newly created div
+  newDiv.appendChild(newContent);
+
+  // add the newly created element and its content into the DOM
+  const currentDiv = document.getElementById("div1");
+  document.body.insertBefore(newDiv, currentDiv);
+}
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> old-code/vanilla-dom-manipulation.js
+</p><!-- .element: class="filename" -->
 
 --
 
@@ -191,18 +234,13 @@ const taggedFunction = (template, ...values) => {
 
 --
 
-```js[0|1|2-4|5|6-10|12|15-17]
+```js[0|1|2-4|5|7-8|10-12]
 import { html, css, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 @customElement('hello-world')
 export class HelloWorld extends LitElement {
-  static styles = css`
-    p {
-      color: var(--hw-color, green);
-    }
-  `;
-
+  
   @property()
   type = 'wonderful';
 
@@ -222,7 +260,7 @@ export class HelloWorld extends LitElement {
 <!DOCTYPE html>
 <html lang="en">
   <body>
-    <hello-world type="amazing">Light DOM fallback</hello-world>
+    <hello-world type="amazing"></hello-world>
   </body>
 </html>
 ```
@@ -385,8 +423,6 @@ export class MyElement extends LitElement {
 
 --
 
-### Styling component
-
 ```js[0]
 import { css } from 'lit'
 
@@ -458,89 +494,13 @@ export class MyElement extends LitElement {
 
 ---
 
-### Custom Elements Manifest
-
-<!-- .slide: data-theme="calm-beige" -->
-
---
-
-### _Codegen_ for Web Components
-
-- Describes the API<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Tools for analyzing and displaying<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Automated<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Supported in storybook since 6.4<!-- .element: class="fragment fade-in-then-semi-out" -->
-
---
-
-## Skeleton components
-
---
-
-### Skeleton component example
-
-![fg-configurator](/assets/fg-configurator.webp)<!-- .element: class="w-80" -->
-
---
-
-### Code example
-
-<div>
-
-```typescript
-/**
- * Product identifier
- */
-@property({ type: Number })
-product = -1;
-```
-
-<p>
-  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> src/fg-configurator.ts
-</p><!-- .element: class="filename" -->
-
-</div><!-- .element: class="fragment fade-in-then-semi-out" -->
-
-<div>
-
-```javascript[0|7]
-import VitePluginCustomElementsManifest from 'vite-plugin-cem';
-export default defineConfig({
-  ...
-  plugins: [
-    VitePluginCustomElementsManifest({
-      files: ['./src/fg-configurator.ts'],
-      lit: true,
-    }),
-  ],
-});
-
-```
-
-<p>
-  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> vite.config.js
-</p><!-- .element: class="filename" -->
-
-</div><!-- .element: class="fragment fade-in" -->
-
---
-
-<!-- .slide: data-theme="calm-beige" -->
-
-### &lt;api-viewer&gt;
-
-<api-viewer src="./assets/wc/custom-elements.json"></api-viewer>
-
----
-
 ### Getting started
 
 <!-- .slide: data-theme="blue" -->
 
-<span>💡 [lit.dev](https://lit.dev/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-<span>⚙️ [lit.dev/docs/libraries/labs/](https://lit.dev/docs/libraries/labs/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-<span>🤔 [custom-elements-manifest.open-wc.org](https://custom-elements-manifest.open-wc.org/) </span> <br /><!-- .element: class="fragment fade-in-then-semi-out" -->
-<span>👋 [github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) </span> <br /><!-- .element: class="fragment fade-in" -->
+<span>💡 [lit.dev](https://lit.dev/) </span> <br ><!-- .element: class="fragment fade-in-then-semi-out" -->
+<span>⚙️ [lit.dev/docs/libraries/labs/](https://lit.dev/docs/libraries/labs/) </span> <br ><!-- .element: class="fragment fade-in-then-semi-out" -->
+<span>👋 [github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) </span> <br ><!-- .element: class="fragment fade-in" -->
 
 ---
 
@@ -548,6 +508,6 @@ export default defineConfig({
 
 Contact me:
 
-![iO logo](/assets/io.svg)<!-- .element: class="icon icon-inline" --> [iodigital.com](https://www.iodigital.com) <br />
-🦜 [twitter.com/lucienimmink](https://twitter.com/lucienimmink) <br />
-🏢 [linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br />
+![iO logo](/assets/io.svg)<!-- .element: class="icon icon-inline" --> [iodigital.com](https://www.iodigital.com) <br >
+🦜 [twitter.com/lucienimmink](https://twitter.com/lucienimmink) <br >
+🏢 [linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br >
