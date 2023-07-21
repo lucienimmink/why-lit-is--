@@ -128,23 +128,23 @@ $(document).ready(function(){
 
 ```jsx[0|2|12]
 return (
-    <div className="App">
-      <h1>Map do Array</h1>
-      <ul>
-        {(array || sliced ) && array.map((item, id) =>{
-          return <li key={id}>{item.name}
-          <button onClick={() => handleEdit(item)}>edit</button>
-          </li>
-        })}
-      </ul>
-    
-      <div style={{marginTop: "50px"}}> 
-        <input type="text" value={word || ''} onChange={e => setWord(e.target.value)}/>
-        <input type="submit" value="ADD" onClick={() => handleSubmit(word)}/>
-        {editing && <input type="submit" value="submit" onClick={sendEdition} />}
-      </div>
+  <div className="App">
+    <h1>Map do Array</h1>
+    <ul>
+      {(array || sliced ) && array.map((item, id) =>{
+        return <li key={id}>{item.name}
+        <button onClick={() => handleEdit(item)}>edit</button>
+        </li>
+      })}
+    </ul>
+  
+    <div style={{marginTop: "50px"}}> 
+      <input type="text" value={word || ''} onChange={e => setWord(e.target.value)}/>
+      <input type="submit" value="ADD" onClick={() => handleSubmit(word)}/>
+      {editing && <input type="submit" value="submit" onClick={sendEdition} />}
     </div>
-  );
+  </div>
+);
 ```
 
 <p>
@@ -318,11 +318,11 @@ export class HelloWorld extends LitElement {
   <img src="/assets/icons/html.svg" class="icon icon-inline" alt=""> index.html
 </p><!-- .element: class="filename" -->
 
-![extremely small overhead](/assets/hello-world-bundle-size.webp)<!-- .element: class="fragment fade-up w-90" -->
+![extremely small overhead](/assets/hello-world-bundle-size.webp)<!-- .element: class="fragment fade-in w-90" -->
 
 --
 
-<video src="/assets/amazing-developer-amazing.mp4" data-autoplay loop><!-- .element: class="h-90" -->
+<video src="/assets/amazing-developer-amazing-dark.mp4" data-autoplay loop><!-- .element: class="h-90" -->
 
 --
 
@@ -439,7 +439,7 @@ export class HelloWorld extends LitElement {
 
 --
 
-<video src="/assets/counter.mp4" data-autoplay loop><!-- .element: class="h-90" -->
+<video src="/assets/counter-dark.mp4" data-autoplay loop><!-- .element: class="h-90" -->
 --
 
 ### Styling
@@ -539,7 +539,7 @@ export class MyElement extends LitElement {
 
 --
 
-<video src="/assets/virtualizer.mp4" data-autoplay loop><!-- .element: class="h-90" -->
+<video src="/assets/virtualizer-dark.mp4" data-autoplay loop><!-- .element: class="h-90" -->
 
 ---
 
