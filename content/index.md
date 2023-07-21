@@ -100,7 +100,55 @@ function addElement() {
 ```
 
 <p>
-  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> old-code/vanilla-dom-manipulation.js
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> ancient-code/vanilla-dom-manipulation.js
+</p><!-- .element: class="filename" -->
+
+--
+
+```js[0|5,9]
+$(document).ready(function(){
+  $.getJSON('https://some-api', function (data) {
+    var items = [];
+    $.each(data, function (key, value) {
+      items.push( "<li id='" + key + "'>" + val + "</li>" );
+    });
+    $( "<ul/>", {
+      "class": "my-new-list",
+      html: items.join( "" )
+    }).appendTo( "body" );
+  });
+});
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> old-code/jquery.js
+</p><!-- .element: class="filename" -->
+
+--
+
+```jsx[0|2|12]
+return (
+    <div className="App">
+      <h1>Map do Array</h1>
+      <ul>
+        {(array || sliced ) && array.map((item, id) =>{
+          return <li key={id}>{item.name}
+          <button onClick={() => handleEdit(item)}>edit</button>
+          </li>
+        })}
+      </ul>
+    
+      <div style={{marginTop: "50px"}}> 
+        <input type="text" value={word || ''} onChange={e => setWord(e.target.value)}/>
+        <input type="submit" value="ADD" onClick={() => handleSubmit(word)}/>
+        {editing && <input type="submit" value="submit" onClick={sendEdition} />}
+      </div>
+    </div>
+  );
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> new-code/jsx.js
 </p><!-- .element: class="filename" -->
 
 --
@@ -125,17 +173,6 @@ true || false
 <!-- .element: class="fragment fade-in-then-semi-out" -->
 
 <div>
-Array literals
-
-```javascript
-let list = ['cat', 'dog', 'catdog']
-let anotherList = [1, null, { "property": "value" }]
-```
-
-</div>
-<!-- .element: class="fragment fade-in-then-semi-out" -->
-
-<div>
 Numeric literals
 
 ```javascript
@@ -147,6 +184,18 @@ let binaryNumber = 0b01011001
 
 </div>
 <!-- .element: class="fragment fade-in-then-semi-out" -->
+
+<div>
+Array literals
+
+```javascript
+let list = ['cat', 'dog', 'catdog']
+let anotherList = [1, null, { "property": "value" }]
+```
+
+</div>
+<!-- .element: class="fragment fade-in-then-semi-out" -->
+
 
 --
 
@@ -235,7 +284,7 @@ const taggedFunction = (template, ...values) => {
 --
 
 ```js[0|1|2-4|5|7-8|10-12]
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 @customElement('hello-world')
