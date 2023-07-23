@@ -207,8 +207,9 @@ const person = {
     name: 'Lucien',
     surname: 'Immink',
     company: 'iO',
+    favoriteGermanBands: ["Feuerschwanz", "D'Artagnan", "Rammstein"]
     professions: [ 'Software Architect', 'Developer Advocate' ],
-    currentLocation: 'WeAreDevelopers World Congress'
+    currentLocation: 'WeAreDevelopers World Congress',
 }
 ```
 
