@@ -56,7 +56,7 @@ Google Developer Expert
 
 --
 
-![Internet Explorer](/assets/ie6.webp)<!-- .element: class="image" -->
+![Internet Explorer](/assets/ie6.webp)<!-- .element: class="image h-90" -->
 
 --
 
@@ -319,6 +319,7 @@ export class HelloWorld extends LitElement {
 <html lang="en">
   <body>
     <hello-world type="amazing"></hello-world>
+    <script src="hello-world.js"></script>
   </body>
 </html>
 ```
