@@ -52,6 +52,14 @@ Google Developer Expert
 
 --
 
+![Netscape navigator](/assets/netscape.webp)<!-- .element: class="image" -->
+
+--
+
+![Internet Explorer](/assets/ie6.webp)<!-- .element: class="image" -->
+
+--
+
 ![Real media](/assets/real-media.webp)<!-- .element: class="image" -->
 
 --
