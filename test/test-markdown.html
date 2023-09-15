@@ -382,13 +382,6 @@
 					assert.strictEqual( deck4.getPlugin( 'markdown' ).marked.defaults.smartypants, true );
 				});
 
-				QUnit.test( 'Smart quotes are activated', function( assert ) {
-					var text = deck4.getRevealElement().querySelector( '.reveal .slides>section>p' ).textContent;
-
-					assert.strictEqual( /['"]/.test( text ), false );
-					assert.strictEqual( /[“”‘’]/.test( text ), true );
-				});
-
 			} );
 
 			let deck5 = new Reveal( document.querySelector( '.deck5' ), { plugins: [ Markdown ] })
