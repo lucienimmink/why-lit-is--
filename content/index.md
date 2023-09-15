@@ -1,3 +1,15 @@
+<!-- .slide: data-background-image="/assets/wall.webp" -->---
+
+--
+
+<!-- .slide: data-background-image="/assets/desk-1.webp"-->---
+
+--
+
+<!-- .slide: data-background-image="/assets/desk-2.webp"-->
+
+---
+
 # Why Lit is 🔥
 
 <!-- .slide: data-theme="blue" -->
@@ -96,7 +108,7 @@ function addElement() {
   const newDiv = document.createElement("div");
 
   // and give it some content
-  const newContent = document.createTextNode("Hello Berlin!");
+  const newContent = document.createTextNode("Hello Den Bosch!");
 
   // add the text node to the newly created div
   newDiv.appendChild(newContent);
@@ -215,9 +227,8 @@ const person = {
     name: 'Lucien',
     surname: 'Immink',
     company: 'iO',
-    favoriteGermanBands: ["Feuerschwanz", "D'Artagnan", "Rammstein"]
     professions: [ 'Software Architect', 'Developer Advocate' ],
-    currentLocation: 'WeAreDevelopers World Congress',
+    currentLocation: 'iO Den Bosch',
 }
 ```
 
@@ -241,7 +252,7 @@ String literals
 ```javascript
 const str = 'Hello';
 const multiLineStr = 'Hello\nWorld';
-const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"], "currentLocation": "WeAreDevelopers World Congress"}';
+const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"], "currentLocation": "iO Den Bosch"}';
 const concat = 'Hello ' + type + ' world';
 ```
 
@@ -570,3 +581,7 @@ Contact me:
 ![iO logo](/assets/io.svg)<!-- .element: class="icon icon-inline" --> [iodigital.com](https://www.iodigital.com) <br >
 🦜 [twitter.com/lucienimmink](https://twitter.com/lucienimmink) <br >
 🏢 [linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br >
+
+---
+
+<!-- .slide: data-background-image="/assets/qrcode_for_feedback_-_front-end_developer_day_26_09.webp" data-background-size="contain"-->
