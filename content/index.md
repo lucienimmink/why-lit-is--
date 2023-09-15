@@ -1,8 +1,8 @@
-<!-- .slide: data-background-image="/assets/wall.webp" -->---
+<!-- .slide: data-background-image="/assets/wall.webp" -->
 
 --
 
-<!-- .slide: data-background-image="/assets/desk-1.webp"-->---
+<!-- .slide: data-background-image="/assets/desk-1.webp"-->
 
 --
 
