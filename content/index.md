@@ -6,7 +6,7 @@
 
 --
 
-<!-- .slide: data-background-image="/assets/desk-2.webp"-->
+<!-- .slide: data-background-image="/assets/headphones.webp"-->
 
 ---
 
