@@ -537,51 +537,284 @@ export class MyElement extends LitElement {
 
 --
 
-### Lit Labs
-
-- react: react integration helpers<!-- .element: class="fragment fade-in-then-semi-out" -->
-- motion: Animation helpers for Lit templates<!-- .element: class="fragment fade-in-then-semi-out" -->
-- SSR: server-side rendering templates and components<!-- .element: class="fragment fade-in-then-semi-out" -->
-- task: Reactive controller for handling async tasks<!-- .element: class="fragment fade-in-then-semi-out" -->
-- testing: testing utilities for Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
-- router: component-oriented router API<!-- .element: class="fragment fade-in-then-semi-out" -->
-- virtualizer: viewport-based virtualization<!-- .element: class="fragment fade-in-then-semi-out" -->
-
---
-
 ### @lit-labs/react
 
-React me
+```TypeScript
+import type {EventName} from '@lit-labs/react';
+
+import * as React from 'react';
+import {createComponent} from '@lit-labs/react';
+import {MyElement} from './my-element.js';
+
+export const MyElementComponent = createComponent({
+  tagName: 'my-element',
+  elementClass: MyElement,
+  react: React,
+  events: {
+    onClick: 'pointerdown' as EventName<PointerEvent>,
+    onChange: 'input',
+  },
+});
+```
+
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> react-element.ts
+</p><!-- .element: class="filename" -->
 
 --
 
 ### @lit-labs/motion
 
-Motion me
+```typescript[0|11-17|38|42-44]
+import { css, html, LitElement } from 'lit';
+import { customElement, state } from 'lit/decorators.js';
+import { animate } from '@lit-labs/motion';
+
+@customElement('my-motion')
+export class MyMotion extends LitElement {
+  
+  @state({type: Boolean})
+  shifted = false;
+
+  options = {
+    // see https://developer.mozilla.org/en-US/docs/Web/API/Element/animate
+    keyframeOptions: {
+        duration: 500,
+        easing: 'ease-in-out',
+    }
+  }
+
+  static styles = css`
+    .box {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      margin-top: 25px;
+      background: steelblue;
+      border-radius: 50%;
+    }
+
+    .shifted {
+      right: 0;
+      background-color: tomato;
+    }
+  `;
+
+  render() {
+    return html`
+      <button @click=${this._toggle}>Move</button>
+      <div class="box ${this.shifted ? 'shifted' : ''}" ${animate(this.options)}></div>
+    `;
+  }
+
+  _toggle() {
+    this.shifted = !this.shifted;
+  }
+}
+```
+
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> my-element.ts
+</p><!-- .element: class="filename" -->
 
 --
 
-### @lit-labs/SSR
+### @lit-labs/motion example
 
-SSR me
+<video src="/assets/motion-dark.mp4" data-autoplay loop><!-- .element: class="h-80" -->
+--
+
+### @lit-labs/ssr
+
+#### Server usage
+
+```js
+import { render } from '@lit-labs/ssr/lib/render-lit-html.js';
+import { myTemplate } from './my-template.js';
+
+//...
+
+const ssrResult = render(myTemplate(data));
+context.body = Readable.from(ssrResult);
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> server.js
+</p><!-- .element: class="filename" -->
+
+--
+
+### @lit-labs/ssr
+
+#### Client hydration
+
+```js
+import { render } from 'lit';
+import { hydrate } from '@lit-labs/ssr-client';
+import { myTemplate } from './my-template.js';
+// Initial hydration required before render:
+// (must be same data used to render on the server)
+const initialData = getInitialAppData();
+hydrate(myTemplate(initialData), document.body);
+
+// After hydration, render will efficiently update the server-rendered DOM:
+const update = (data) => render(myTemplate(data), document.body);
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> client.js
+</p><!-- .element: class="filename" -->
 
 --
 
 ### @lit-labs/task
 
-await me
+```js[0|21-24|8-16]
+import {Task, TaskStatus} from '@lit-labs/task';
+// ...
+
+class MyElement extends LitElement {
+  @state()
+  private _userId: number = -1;
+
+  private _apiTask = new Task(
+    this,
+    ([userId]) =>
+      // better to use OpenAPI here
+      fetch(`//example.com/api/userInfo?${userId}`).then((response) =>
+        response.json()
+      ),
+    () => [this._userId]
+  );
+
+  render() {
+    return html`
+      <div>User Info</div>
+      ${this._apiTask.render({
+        pending: () => html`Loading user info...`,
+        complete: (user) => html`${user.name}`,
+      })}
+      <!-- ... -->
+    `;
+  }
+}
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> task.js
+</p><!-- .element: class="filename" -->
 
 --
 
 ### @lit-labs/testing
 
-test 123 me
+```js
+import {ssrFixture} from '@lit-labs/testing/fixtures.js';
+import {html} from 'lit';
+import {assert} from '@esm-bundle/chai';
+
+suite('my-element', () => {
+  test('is rendered server-side', async () => {
+    const el = await ssrFixture(html`<my-element></my-element>`, {
+      modules: ['./my-element.js'],
+      base: 'http://localhost:8000/dist/components/',
+      hydrate: false,
+    });
+    assert.equal(el.shadowRoot.querySelector('p').textContent, 'Hello, World!');
+  });
+});
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> test.js
+</p><!-- .element: class="filename" -->
+
+--
+
+```js[0|2-4|9-21 ]
+import {
+  csrFixture,
+  ssrNonHydratedFixture,
+  ssrHydratedFixture,
+} from '@lit-labs/testing/fixtures.js';
+import {html} from 'lit';
+import {assert} from '@esm-bundle/chai';
+
+for (const fixture of [csrFixture, ssrNonHydratedFixture, ssrHydratedFixture]) {
+  suite(`my-element rendered with ${fixture.name}`, () => {
+    test('renders as expected', async () => {
+      const el = await fixture(html`<my-element></my-element>`, {
+        modules: ['./my-element.js'],
+      });
+      assert.equal(
+        el.shadowRoot.querySelector('p').textContent,
+        'Hello, World!'
+      );
+    });
+  });
+}
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> test-2.js
+</p><!-- .element: class="filename" -->
 
 --
 
 ### @lit-labs/router
 
-include example with view transition
+```js
+import { Routes } from '@lit-labs/router';
+class MyElement extends LitElement {
+  private _routes = new Routes(this, [
+    {path: '/', render: () => html`<h1>Home</h1>`},
+    {path: '/projects', render: () => html`<h1>Projects</h1>`},
+    {path: '/about', render: () => html`<h1>About</h3>`},
+  ]);
+
+  render() {
+    return html`
+      <header>...</header>
+      <main>${this._routes.outlet()}</main>
+      <footer>...</footer>
+    `;
+  }
+}
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> router.js
+</p><!-- .element: class="filename" -->
+
+--
+
+### @lit-labs/router
+
+- RouteConfig<!-- .element: class="fragment fade-in-then-semi-out" -->
+- nested routing<!-- .element: class="fragment fade-in-then-semi-out" -->
+- enter/render callbacks<!-- .element: class="fragment fade-in-then-semi-out" -->
+- navigate by calling goto()<!-- .element: class="fragment fade-in-then-semi-out" -->
+- create links by calling link()<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+--
+
+### @lit-labs/virtualizer
+
+```js
+render() {
+  return html`
+    <h2>My Contacts</h2>
+    <lit-virtualizer
+      .items=${this.contacts}
+      .renderItem=${contact => html`<div>${contact.name}: ${contact.phone}</div>`}
+    ></lit-virtualizer>
+  `;
+}
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> my-contacts.js
+</p><!-- .element: class="filename" -->
 
 --
 
@@ -612,7 +845,7 @@ include example with view transition
 
 ### Skeleton component example
 
-![fg-configurator](/assets/fg-configurator.webp)<!-- .element: class="w-80" -->
+![fg-configurator](/assets/fg-configurator.webp)<!-- .element: class="h-80 image" -->
 
 --
 
@@ -662,6 +895,31 @@ export default defineConfig({
 ### &lt;api-viewer&gt;
 
 <api-viewer src="./assets/wc/custom-elements.json"></api-viewer>
+
+--
+
+### to-markdown
+
+![to-markdown](/assets/to-markdown.webp) <!-- .element: class="image"-->
+
+--
+
+### API first components
+
+- Think about the API of your component<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Use CEM and it's tools to share the API<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Keep documentation up2date using CEM<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Happy developers! 🥳🎉<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+---
+
+## Recap
+
+<!-- .slide: data-theme="calm-green" -->
+
+- Lit = Web components + template literals<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Lit labs = additional functionality to create web applications<!-- .element: class="fragment fade-in-then-semi-out" -->
+- CEM = A standard way to describe the API of web components<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
 
