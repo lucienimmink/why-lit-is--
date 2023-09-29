@@ -97,7 +97,7 @@ function addElement() {
   const newDiv = document.createElement("div");
 
   // and give it some content
-  const newContent = document.createTextNode("Hello Den Bosch!");
+  const newContent = document.createTextNode("Hello Munich");
 
   // add the text node to the newly created div
   newDiv.appendChild(newContent);
@@ -217,7 +217,7 @@ const person = {
     surname: 'Immink',
     company: 'iO',
     professions: [ 'Software Architect', 'Developer Advocate' ],
-    currentLocation: 'iO Den Bosch',
+    currentLocation: 'iJS conference Munich',
 }
 ```
 
@@ -241,7 +241,7 @@ String literals
 ```javascript
 const str = 'Hello';
 const multiLineStr = 'Hello\nWorld';
-const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"], "currentLocation": "iO Den Bosch"}';
+const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"], "currentLocation": "iJS conference Munich"}';
 const concat = 'Hello ' + type + ' world';
 ```
 
