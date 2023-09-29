@@ -178,6 +178,9 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 	.h-90 {
 		max-height: calc(var(--slide-height) - 2*var(--r-block-margin));
 	}
+	.h-80 {
+		max-height: calc(var(--slide-height) - 4*var(--r-block-margin));
+	}
 }
 
 // scrollbars on windows -----------------------

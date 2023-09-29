@@ -44,6 +44,7 @@ Google Developer Expert
 - Web, the platform<!-- .element: class="fragment fade-in" -->
 - Lit, the library<!-- .element: class="fragment fade-in" -->
 - Lit Labs, the experiments<!-- .element: class="fragment fade-in" -->
+- CEM, a new workflow<!-- .element: class="fragment fade-in" -->
 
 ---
 
@@ -548,7 +549,119 @@ export class MyElement extends LitElement {
 
 --
 
-<video src="/assets/virtualizer-dark.mp4" data-autoplay loop><!-- .element: class="h-90" -->
+### @lit-labs/react
+
+React me
+
+--
+
+### @lit-labs/motion
+
+Motion me
+
+--
+
+### @lit-labs/SSR
+
+SSR me
+
+--
+
+### @lit-labs/task
+
+await me
+
+--
+
+### @lit-labs/testing
+
+test 123 me
+
+--
+
+### @lit-labs/router
+
+include example with view transition
+
+--
+
+### @lit-labs/virtualizer
+
+<video src="/assets/virtualizer-dark.mp4" data-autoplay loop><!-- .element: class="h-80" -->
+
+---
+
+### Custom Elements Manifest
+
+<!-- .slide: data-theme="calm-beige" -->
+
+--
+
+### _Codegen_ for Web Components
+
+- Describes the API<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Tools for analyzing and displaying<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Automated<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Supported in storybook since 6.4<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+--
+
+## Skeleton components
+
+--
+
+### Skeleton component example
+
+![fg-configurator](/assets/fg-configurator.webp)<!-- .element: class="w-80" -->
+
+--
+
+### Code example
+
+<div>
+
+```typescript
+/**
+ * Product identifier
+ */
+@property({ type: Number })
+product = -1;
+```
+
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> src/fg-configurator.ts
+</p><!-- .element: class="filename" -->
+
+</div><!-- .element: class="fragment fade-in-then-semi-out" -->
+
+<div>
+
+```javascript[0|7]
+import VitePluginCustomElementsManifest from 'vite-plugin-cem';
+export default defineConfig({
+  ...
+  plugins: [
+    VitePluginCustomElementsManifest({
+      files: ['./src/fg-configurator.ts'],
+      lit: true,
+    }),
+  ],
+});
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> vite.config.js
+</p><!-- .element: class="filename" -->
+
+</div><!-- .element: class="fragment fade-in" -->
+
+--
+
+<!-- .slide: data-theme="calm-beige" -->
+
+### &lt;api-viewer&gt;
+
+<api-viewer src="./assets/wc/custom-elements.json"></api-viewer>
 
 ---
 
@@ -569,7 +682,3 @@ Contact me:
 ![iO logo](/assets/io.svg)<!-- .element: class="icon icon-inline" --> [iodigital.com](https://www.iodigital.com) <br >
 🦜 [twitter.com/lucienimmink](https://twitter.com/lucienimmink) <br >
 🏢 [linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br >
-
----
-
-<!-- .slide: data-background-image="/assets/qrcode_for_feedback_-_front-end_developer_day_26_09.webp" data-background-size="contain"-->
