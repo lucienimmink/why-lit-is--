@@ -540,11 +540,11 @@ export class MyElement extends LitElement {
 ### @lit-labs/react
 
 ```TypeScript
-import type {EventName} from '@lit-labs/react';
+import type { EventName } from '@lit-labs/react';
 
 import * as React from 'react';
-import {createComponent} from '@lit-labs/react';
-import {MyElement} from './my-element.js';
+import { createComponent } from '@lit-labs/react';
+import { MyElement } from './my-element.js';
 
 export const MyElementComponent = createComponent({
   tagName: 'my-element',
@@ -709,9 +709,9 @@ class MyElement extends LitElement {
 ### @lit-labs/testing
 
 ```js
-import {ssrFixture} from '@lit-labs/testing/fixtures.js';
-import {html} from 'lit';
-import {assert} from '@esm-bundle/chai';
+import { ssrFixture } from '@lit-labs/testing/fixtures.js';
+import { html } from 'lit';
+import { assert } from '@esm-bundle/chai';
 
 suite('my-element', () => {
   test('is rendered server-side', async () => {
@@ -737,8 +737,8 @@ import {
   ssrNonHydratedFixture,
   ssrHydratedFixture,
 } from '@lit-labs/testing/fixtures.js';
-import {html} from 'lit';
-import {assert} from '@esm-bundle/chai';
+import { html } from 'lit';
+import { assert } from '@esm-bundle/chai';
 
 for (const fixture of [csrFixture, ssrNonHydratedFixture, ssrHydratedFixture]) {
   suite(`my-element rendered with ${fixture.name}`, () => {
