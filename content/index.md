@@ -732,7 +732,7 @@ const update = (data) => render(myTemplate(data), document.body);
 ### @lit-labs/testing
 
 ```js[0|4|9-13]
-import describe, test from 'node:test';
+import { describe, test } from 'node:test';
 import assert from 'node:assert/strict';
 import { html } from 'lit';
 import { ssrFixture } from '@lit-labs/testing/fixtures.js';
