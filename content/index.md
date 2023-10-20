@@ -436,7 +436,7 @@ export class HelloWorld extends LitElement {
 
   render() {
     return html`
-      <button @click=${this.addCount}>Add more</button>
+      <button @click="${this.addCount}">Add more</button>
       <p>counter is now at: ${this.counter}</p>
     `;
   }
@@ -537,13 +537,20 @@ export class MyElement extends LitElement {
 
 --
 
-### @lit-labs/react
+## Lit 3.0
+
+- Released in October 2023<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Dropped IE support<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Standard decorators<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Graduated the first @lit-labs packages to @lit<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+--
+
+### @lit/react
 
 ```TypeScript
-import type { EventName } from '@lit-labs/react';
-
-import * as React from 'react';
-import { createComponent } from '@lit-labs/react';
+import React from 'react';
+import { createComponent } from '@lit/react';
 import { MyElement } from './my-element.js';
 
 export const MyElementComponent = createComponent({
@@ -551,21 +558,76 @@ export const MyElementComponent = createComponent({
   elementClass: MyElement,
   react: React,
   events: {
-    onClick: 'pointerdown' as EventName<PointerEvent>,
-    onChange: 'input',
+    onactivate: 'activate',
+    onchange: 'change',
   },
 });
 ```
 
 <p>
-  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> react-element.ts
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> my-element-component.ts
+</p><!-- .element: class="filename" -->
+
+--
+
+### @lit/react - usage
+
+```jsx
+<MyElementComponent
+  active={isActive}
+  onactivate={(e) => setIsActive(e.active)}
+  onchange={handleChange}
+/>
+```
+
+<p>
+  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> some-react-component.ts
+</p><!-- .element: class="filename" -->
+
+--
+
+### @lit/task
+
+```js[0|20-24|8-15]
+import {Task, TaskStatus} from '@lit/task';
+// ...
+
+class MyElement extends LitElement {
+  @state()
+  private _userId: number = -1;
+
+  private _apiTask = new Task(
+    this,
+    ([userId]) =>
+      fetch(`//example.com/api/userInfo?${userId}`).then((response) =>
+        response.json()
+      ),
+    () => [this._userId]
+  );
+
+  render() {
+    return html`
+      <div>User Info</div>
+      ${this._apiTask.render({
+        pending: () => html`Loading user info...`,
+        complete: (user) => html`${user.name}`,
+        error: (e) => html`<p>Error: ${e}</p>`
+      })}
+      <!-- ... -->
+    `;
+  }
+}
+```
+
+<p>
+  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> task.js
 </p><!-- .element: class="filename" -->
 
 --
 
 ### @lit-labs/motion
 
-```typescript[0|11-17|38|42-44]
+```typescript[0|11-17|19-27|29-32|38|42-44]
 import { css, html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { animate } from '@lit-labs/motion';
@@ -667,53 +729,16 @@ const update = (data) => render(myTemplate(data), document.body);
 
 --
 
-### @lit-labs/task
-
-```js[0|21-24|8-16]
-import {Task, TaskStatus} from '@lit-labs/task';
-// ...
-
-class MyElement extends LitElement {
-  @state()
-  private _userId: number = -1;
-
-  private _apiTask = new Task(
-    this,
-    ([userId]) =>
-      // better to use OpenAPI here
-      fetch(`//example.com/api/userInfo?${userId}`).then((response) =>
-        response.json()
-      ),
-    () => [this._userId]
-  );
-
-  render() {
-    return html`
-      <div>User Info</div>
-      ${this._apiTask.render({
-        pending: () => html`Loading user info...`,
-        complete: (user) => html`${user.name}`,
-      })}
-      <!-- ... -->
-    `;
-  }
-}
-```
-
-<p>
-  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> task.js
-</p><!-- .element: class="filename" -->
-
---
-
 ### @lit-labs/testing
 
-```js
-import { ssrFixture } from '@lit-labs/testing/fixtures.js';
+```js[0|4|9-13]
+import describe, test from 'node:test';
+import assert from 'node:assert/strict';
 import { html } from 'lit';
-import { assert } from '@esm-bundle/chai';
+import { ssrFixture } from '@lit-labs/testing/fixtures.js';
 
-suite('my-element', () => {
+
+describe('my-element', () => {
   test('is rendered server-side', async () => {
     const el = await ssrFixture(html`<my-element></my-element>`, {
       modules: ['./my-element.js'],
@@ -731,17 +756,18 @@ suite('my-element', () => {
 
 --
 
-```js[0|2-4|9-21 ]
+```js[0|3-7|10-22]
+import describe, test from 'node:test';
+import assert from 'node:assert/strict';
 import {
   csrFixture,
   ssrNonHydratedFixture,
   ssrHydratedFixture,
 } from '@lit-labs/testing/fixtures.js';
 import { html } from 'lit';
-import { assert } from '@esm-bundle/chai';
 
 for (const fixture of [csrFixture, ssrNonHydratedFixture, ssrHydratedFixture]) {
-  suite(`my-element rendered with ${fixture.name}`, () => {
+  describe(`my-element rendered with ${fixture.name}`, () => {
     test('renders as expected', async () => {
       const el = await fixture(html`<my-element></my-element>`, {
         modules: ['./my-element.js'],
@@ -763,13 +789,18 @@ for (const fixture of [csrFixture, ssrNonHydratedFixture, ssrHydratedFixture]) {
 
 ### @lit-labs/router
 
-```js
+```js[0|4-12|17]
 import { Routes } from '@lit-labs/router';
+
 class MyElement extends LitElement {
   private _routes = new Routes(this, [
-    {path: '/', render: () => html`<h1>Home</h1>`},
-    {path: '/projects', render: () => html`<h1>Projects</h1>`},
-    {path: '/about', render: () => html`<h1>About</h3>`},
+    { path: '/', render: () => html`<h1>Home</h1>` },
+    { path: '/projects', 
+      render: () => html`<my-projects></my-projects>`, 
+      enter: async() => {
+        return await import('./components/projects/index.js');
+    } },
+    { path: '/about', render: () => html`<h1>About</h3>` },
   ]);
 
   render() {
@@ -791,16 +822,21 @@ class MyElement extends LitElement {
 ### @lit-labs/router
 
 - RouteConfig<!-- .element: class="fragment fade-in-then-semi-out" -->
-- nested routing<!-- .element: class="fragment fade-in-then-semi-out" -->
-- enter/render callbacks<!-- .element: class="fragment fade-in-then-semi-out" -->
-- navigate by calling goto()<!-- .element: class="fragment fade-in-then-semi-out" -->
-- create links by calling link()<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Nested routing<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Enter/render callbacks<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Navigate by calling goto()<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Create links by calling link()<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Can be used with view transition API<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 --
 
 ### @lit-labs/virtualizer
 
 ```js
+import '@lit-labs/virtualizer';
+
+...
+
 render() {
   return html`
     <h2>My Contacts</h2>
