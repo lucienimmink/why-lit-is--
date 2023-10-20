@@ -757,7 +757,7 @@ describe('my-element', () => {
 --
 
 ```js[0|3-7|10-22]
-import describe, test from 'node:test';
+import { describe, test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   csrFixture,
