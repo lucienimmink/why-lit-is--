@@ -774,7 +774,7 @@ import { html } from 'lit';
 for (const fixture of [csrFixture, ssrNonHydratedFixture, ssrHydratedFixture]) {
   describe(`hello-world rendered with ${fixture.name}`, () => {
     test('renders as expected', async () => {
-      const el = await fixture(html`<hello-world tye="developer"></hello-world>`, {
+      const el = await fixture(html`<hello-world type="developer"></hello-world>`, {
         modules: ['./hello-world.js'],
       });
       assert.equal(
