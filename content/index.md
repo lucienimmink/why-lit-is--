@@ -627,7 +627,7 @@ class MyElement extends LitElement {
 
 ### @lit-labs/motion
 
-```typescript[0|11-17|20-27|29-32|38-40|44-46]
+```typescript[0|11-17|20-27|29-32|38-40|37,44-46]
 import { css, html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { animate } from '@lit-labs/motion';
