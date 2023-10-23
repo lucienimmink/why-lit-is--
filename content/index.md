@@ -627,7 +627,7 @@ class MyElement extends LitElement {
 
 ### @lit-labs/motion
 
-```typescript[0|11-17|19-27|29-32|38|42-44]
+```typescript[0|11-17|20-27|29-32|38-40|44-46]
 import { css, html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { animate } from '@lit-labs/motion';
@@ -665,7 +665,9 @@ export class MyMotion extends LitElement {
   render() {
     return html`
       <button @click=${this._toggle}>Move</button>
-      <div class="box ${this.shifted ? 'shifted' : ''}" ${animate(this.options)}></div>
+      <div class="box ${this.shifted ? 'shifted' : ''}" 
+        ${animate(this.options)}>
+      </div>
     `;
   }
 
