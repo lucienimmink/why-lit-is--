@@ -733,21 +733,24 @@ const update = (data) => render(myTemplate(data), document.body);
 
 ### @lit-labs/testing
 
-```js[0|4|9-13]
+```js[0|4|9-15|16-17]
 import { describe, test } from 'node:test';
 import assert from 'node:assert/strict';
 import { html } from 'lit';
 import { ssrFixture } from '@lit-labs/testing/fixtures.js';
 
 
-describe('my-element', () => {
+describe('hello-world', () => {
   test('is rendered server-side', async () => {
-    const el = await ssrFixture(html`<my-element></my-element>`, {
-      modules: ['./my-element.js'],
-      base: 'http://localhost:8000/dist/components/',
-      hydrate: false,
-    });
-    assert.equal(el.shadowRoot.querySelector('p').textContent, 'Hello, World!');
+    const el = await ssrFixture(
+      html`<hello-world type="amazing"></hello-world>`, {
+        modules: ['./hello-world.js'],
+        base: 'http://localhost:8000/dist/components/',
+        hydrate: false,
+      }
+    );
+    assert.equal(el.shadowRoot.querySelector('p').textContent, 
+      'Hello amazing world');
   });
 });
 ```
@@ -769,14 +772,14 @@ import {
 import { html } from 'lit';
 
 for (const fixture of [csrFixture, ssrNonHydratedFixture, ssrHydratedFixture]) {
-  describe(`my-element rendered with ${fixture.name}`, () => {
+  describe(`hello-world rendered with ${fixture.name}`, () => {
     test('renders as expected', async () => {
-      const el = await fixture(html`<my-element></my-element>`, {
-        modules: ['./my-element.js'],
+      const el = await fixture(html`<hello-world tye="developer"></hello-world>`, {
+        modules: ['./hello-world.js'],
       });
       assert.equal(
         el.shadowRoot.querySelector('p').textContent,
-        'Hello, World!'
+        'Hello developer world'
       );
     });
   });
@@ -946,7 +949,10 @@ export default defineConfig({
 
 - Think about the API of your component<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Use CEM and it's tools to share the API<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Keep documentation up2date using CEM<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Editor Support<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Framework integration<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Linting<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Testing<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Happy developers! 🥳🎉<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
@@ -967,6 +973,7 @@ export default defineConfig({
 
 <span>💡 [lit.dev](https://lit.dev/) </span> <br ><!-- .element: class="fragment fade-in-then-semi-out" -->
 <span>⚙️ [lit.dev/docs/libraries/labs/](https://lit.dev/docs/libraries/labs/) </span> <br ><!-- .element: class="fragment fade-in-then-semi-out" -->
+<span> 🖊️ [custom-elements-manifest.open-wc.org](https://custom-elements-manifest.open-wc.org/) </span> <br> <!-- .element: class="fragment fade-in" -->
 <span>👋 [github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) </span> <br ><!-- .element: class="fragment fade-in" -->
 
 ---
@@ -976,5 +983,5 @@ export default defineConfig({
 Contact me:
 
 ![iO logo](/assets/io.svg)<!-- .element: class="icon icon-inline" --> [iodigital.com](https://www.iodigital.com) <br >
-🦜 [twitter.com/lucienimmink](https://twitter.com/lucienimmink) <br >
 🏢 [linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br >
+🐘 [techhub.social/@lucienimmink](https://techhub.social/@lucienimmink) <br >
