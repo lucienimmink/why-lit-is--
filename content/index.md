@@ -2,6 +2,8 @@
 
 <!-- .slide: data-theme="blue" -->
 
+<span>📖 [why-lit-is-lit.netlify.app](https://why-lit-is-lit.netlify.app/) </span> <br ><!-- .element: class="fragment fade-in" -->
+
 --
 
 ### Who is familiar with _web components_?
@@ -975,6 +977,8 @@ export default defineConfig({
 <span>⚙️ [lit.dev/docs/libraries/labs/](https://lit.dev/docs/libraries/labs/) </span> <br ><!-- .element: class="fragment fade-in-then-semi-out" -->
 <span> 🖊️ [custom-elements-manifest.open-wc.org](https://custom-elements-manifest.open-wc.org/) </span> <br> <!-- .element: class="fragment fade-in" -->
 <span>👋 [github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) </span> <br ><!-- .element: class="fragment fade-in" -->
+<br>
+<span>📖 [why-lit-is-lit.netlify.app](https://why-lit-is-lit.netlify.app/) </span> <br ><!-- .element: class="fragment fade-in" -->
 
 ---
 
