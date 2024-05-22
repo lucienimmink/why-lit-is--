@@ -215,9 +215,9 @@ Object literals
 const person = {
     name: 'Lucien',
     surname: 'Immink',
-    company: 'iO',
-    professions: [ 'Software Architect', 'Developer Advocate' ],
-    currentLocation: 'iJS conference Munich',
+    company: 'Team Rockstars IT',
+    professions: [ 'Principal Consultant', "Google Developer Expert" ],
+    currentLocation: 'Frontend Nation',
 }
 ```
 
@@ -241,7 +241,7 @@ String literals
 ```javascript
 const str = 'Hello';
 const multiLineStr = 'Hello\nWorld';
-const json = '{"name":"Lucien","surname":"Immink","company":"iO","professions":["Software Architect","Developer Advocate"], "currentLocation": "iJS conference Munich"}';
+const json = '{"name":"Lucien","surname":"Immink","company":"Team Rockstars IT","professions":["Principal Consultant","Google Developer Expert"], "currentLocation": "Frontend Nation"}';
 const concat = 'Hello ' + type + ' world';
 ```
 
@@ -401,7 +401,7 @@ class MyPage extends LitElement {
     return html`
       ${this.renderHeader()}
       <p>What a nice ${this.greeting()}</p>
-      <my-footer brand-name="iO">
+      <my-footer brand-name="Team Rockstars IT">
         <ul>
           <li><a href="/privacy-policy">Privacy policy</a></li>
           <li><a href="/faq">FAQ</a></li>
