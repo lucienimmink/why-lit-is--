@@ -1,6 +1,6 @@
 # Why Lit is 🔥
 
-<!-- .slide: data-theme="blue" -->
+<!-- .slide: data-theme="black" -->
 
 <span>📖 [why-lit-is-lit.netlify.app](https://why-lit-is-lit.netlify.app/) </span> <br ><!-- .element: class="fragment fade-in" -->
 
@@ -26,7 +26,7 @@
 
 ---
 
-<!-- .slide: data-theme="calm-green" -->
+<!-- .slide: data-theme="yellow" -->
 
 ## Lucien Immink, B.Eng.
 
@@ -34,10 +34,9 @@
 
 ![Lucien Immink](/assets/lucien-immink.webp)<!-- .element: class="circle" style="max-height: 20vh" -->
 
-Software Architect &</br>
-Developer Advocate @ _iO_</br>
-</br>
-Google Developer Expert
+### Principal Consultant @ Team Rockstars IT
+
+#### Google Developer Expert
 
 ---
 
@@ -46,11 +45,10 @@ Google Developer Expert
 - Web, the platform<!-- .element: class="fragment fade-in" -->
 - Lit, the library<!-- .element: class="fragment fade-in" -->
 - Lit Labs, the experiments<!-- .element: class="fragment fade-in" -->
-- CEM, a new workflow<!-- .element: class="fragment fade-in" -->
 
 ---
 
-<!-- .slide: data-theme="calm-pink" -->
+<!-- .slide: data-theme="black" -->
 ## Use the platform
 
 --
@@ -284,7 +282,7 @@ const taggedFunction = (template, ...values) => {
 
 ---
 
-<!-- .slide: data-theme="calm-green" -->
+<!-- .slide: data-theme="black" -->
 
 ## Lit
 
@@ -539,443 +537,19 @@ export class MyElement extends LitElement {
 
 --
 
-## Lit 3.0
-
-- Released in October 2023<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Dropped IE support<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Standard decorators<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Graduated the first @lit-labs packages to @lit<!-- .element: class="fragment fade-in-then-semi-out" -->
-
---
-
-### @lit/react
-
-```TypeScript
-import React from 'react';
-import { createComponent } from '@lit/react';
-import { MyElement } from './my-element.js';
-
-export const MyElementComponent = createComponent({
-  tagName: 'my-element',
-  elementClass: MyElement,
-  react: React,
-  events: {
-    onactivate: 'activate',
-    onchange: 'change',
-  },
-});
-```
-
-<p>
-  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> my-element-component.ts
-</p><!-- .element: class="filename" -->
-
---
-
-### @lit/react - usage
-
-```jsx
-<MyElementComponent
-  active={isActive}
-  onactivate={(e) => setIsActive(e.active)}
-  onchange={handleChange}
-/>
-```
-
-<p>
-  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> some-react-component.ts
-</p><!-- .element: class="filename" -->
-
---
-
-### @lit/task
-
-```js[0|20-24|8-15]
-import {Task, TaskStatus} from '@lit/task';
-// ...
-
-class MyElement extends LitElement {
-  @state()
-  private _userId: number = -1;
-
-  private _apiTask = new Task(
-    this,
-    ([userId]) =>
-      fetch(`//example.com/api/userInfo?${userId}`).then((response) =>
-        response.json()
-      ),
-    () => [this._userId]
-  );
-
-  render() {
-    return html`
-      <div>User Info</div>
-      ${this._apiTask.render({
-        pending: () => html`Loading user info...`,
-        complete: (user) => html`${user.name}`,
-        error: (e) => html`<p>Error: ${e}</p>`
-      })}
-      <!-- ... -->
-    `;
-  }
-}
-```
-
-<p>
-  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> task.js
-</p><!-- .element: class="filename" -->
-
---
-
-### @lit-labs/motion
-
-```typescript[0|11-17|20-27|29-32|38-40|37,44-46]
-import { css, html, LitElement } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
-import { animate } from '@lit-labs/motion';
-
-@customElement('my-motion')
-export class MyMotion extends LitElement {
-  
-  @state({type: Boolean})
-  shifted = false;
-
-  options = {
-    // see https://developer.mozilla.org/en-US/docs/Web/API/Element/animate
-    keyframeOptions: {
-        duration: 500,
-        easing: 'ease-in-out',
-    }
-  }
-
-  static styles = css`
-    .box {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      margin-top: 25px;
-      background: steelblue;
-      border-radius: 50%;
-    }
-
-    .shifted {
-      right: 0;
-      background-color: tomato;
-    }
-  `;
-
-  render() {
-    return html`
-      <button @click=${this._toggle}>Move</button>
-      <div class="box ${this.shifted ? 'shifted' : ''}" 
-        ${animate(this.options)}>
-      </div>
-    `;
-  }
-
-  _toggle() {
-    this.shifted = !this.shifted;
-  }
-}
-```
-
-<p>
-  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> my-element.ts
-</p><!-- .element: class="filename" -->
-
---
-
-### @lit-labs/motion example
-
-<video src="/assets/motion-dark.mp4" data-autoplay loop><!-- .element: class="h-80" -->
---
-
-### @lit-labs/ssr
-
-#### Server usage
-
-```js
-import { render } from '@lit-labs/ssr/lib/render-lit-html.js';
-import { myTemplate } from './my-template.js';
-
-//...
-
-const ssrResult = render(myTemplate(data));
-context.body = Readable.from(ssrResult);
-```
-
-<p>
-  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> server.js
-</p><!-- .element: class="filename" -->
-
---
-
-### @lit-labs/ssr
-
-#### Client hydration
-
-```js
-import { render } from 'lit';
-import { hydrate } from '@lit-labs/ssr-client';
-import { myTemplate } from './my-template.js';
-// Initial hydration required before render:
-// (must be same data used to render on the server)
-const initialData = getInitialAppData();
-hydrate(myTemplate(initialData), document.body);
-
-// After hydration, render will efficiently update the server-rendered DOM:
-const update = (data) => render(myTemplate(data), document.body);
-```
-
-<p>
-  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> client.js
-</p><!-- .element: class="filename" -->
-
---
-
-### @lit-labs/testing
-
-```js[0|4|9-15|16-17]
-import { describe, test } from 'node:test';
-import assert from 'node:assert/strict';
-import { html } from 'lit';
-import { ssrFixture } from '@lit-labs/testing/fixtures.js';
-
-
-describe('hello-world', () => {
-  test('is rendered server-side', async () => {
-    const el = await ssrFixture(
-      html`<hello-world type="amazing"></hello-world>`, {
-        modules: ['./hello-world.js'],
-        base: 'http://localhost:8000/dist/components/',
-        hydrate: false,
-      }
-    );
-    assert.equal(el.shadowRoot.querySelector('p').textContent, 
-      'Hello amazing world');
-  });
-});
-```
-
-<p>
-  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> test.js
-</p><!-- .element: class="filename" -->
-
---
-
-```js[0|3-7|10-22]
-import { describe, test } from 'node:test';
-import assert from 'node:assert/strict';
-import {
-  csrFixture,
-  ssrNonHydratedFixture,
-  ssrHydratedFixture,
-} from '@lit-labs/testing/fixtures.js';
-import { html } from 'lit';
-
-for (const fixture of [csrFixture, ssrNonHydratedFixture, ssrHydratedFixture]) {
-  describe(`hello-world rendered with ${fixture.name}`, () => {
-    test('renders as expected', async () => {
-      const el = await fixture(html`<hello-world type="developer"></hello-world>`, {
-        modules: ['./hello-world.js'],
-      });
-      assert.equal(
-        el.shadowRoot.querySelector('p').textContent,
-        'Hello developer world'
-      );
-    });
-  });
-}
-```
-
-<p>
-  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> test-2.js
-</p><!-- .element: class="filename" -->
-
---
-
-### @lit-labs/router
-
-```js[0|4-12|17]
-import { Routes } from '@lit-labs/router';
-
-class MyElement extends LitElement {
-  private _routes = new Routes(this, [
-    { path: '/', render: () => html`<h1>Home</h1>` },
-    { path: '/projects', 
-      render: () => html`<my-projects></my-projects>`, 
-      enter: async() => {
-        return await import('./components/projects/index.js');
-    } },
-    { path: '/about', render: () => html`<h1>About</h3>` },
-  ]);
-
-  render() {
-    return html`
-      <header>...</header>
-      <main>${this._routes.outlet()}</main>
-      <footer>...</footer>
-    `;
-  }
-}
-```
-
-<p>
-  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> router.js
-</p><!-- .element: class="filename" -->
-
---
-
-### @lit-labs/router
-
-- RouteConfig<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Nested routing<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Enter/render callbacks<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Navigate by calling goto()<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Create links by calling link()<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Can be used with view transition API<!-- .element: class="fragment fade-in-then-semi-out" -->
-
---
-
-### @lit-labs/virtualizer
-
-```js
-import '@lit-labs/virtualizer';
-
-...
-
-render() {
-  return html`
-    <h2>My Contacts</h2>
-    <lit-virtualizer
-      .items=${this.contacts}
-      .renderItem=${contact => html`<div>${contact.name}: ${contact.phone}</div>`}
-    ></lit-virtualizer>
-  `;
-}
-```
-
-<p>
-  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> my-contacts.js
-</p><!-- .element: class="filename" -->
-
---
-
-### @lit-labs/virtualizer
-
-<video src="/assets/virtualizer-dark.mp4" data-autoplay loop><!-- .element: class="h-80" -->
-
----
-
-### Custom Elements Manifest
-
-<!-- .slide: data-theme="calm-beige" -->
-
---
-
-### _Codegen_ for Web Components
-
-- Describes the API<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Tools for analyzing and displaying<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Automated<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Supported in storybook since 6.4<!-- .element: class="fragment fade-in-then-semi-out" -->
-
---
-
-## Skeleton components
-
---
-
-### Skeleton component example
-
-![fg-configurator](/assets/fg-configurator.webp)<!-- .element: class="h-80 image" -->
-
---
-
-### Code example
-
-<div>
-
-```typescript
-/**
- * Product identifier
- */
-@property({ type: Number })
-product = -1;
-```
-
-<p>
-  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> src/fg-configurator.ts
-</p><!-- .element: class="filename" -->
-
-</div><!-- .element: class="fragment fade-in-then-semi-out" -->
-
-<div>
-
-```javascript[0|7]
-import VitePluginCustomElementsManifest from 'vite-plugin-cem';
-export default defineConfig({
-  ...
-  plugins: [
-    VitePluginCustomElementsManifest({
-      files: ['./src/fg-configurator.ts'],
-      lit: true,
-    }),
-  ],
-});
-```
-
-<p>
-  <img src="/assets/icons/javascript.svg" class="icon icon-inline" alt=""> vite.config.js
-</p><!-- .element: class="filename" -->
-
-</div><!-- .element: class="fragment fade-in" -->
-
---
-
-<!-- .slide: data-theme="calm-beige" -->
-
-### &lt;api-viewer&gt;
-
-<api-viewer src="./assets/wc/custom-elements.json"></api-viewer>
-
---
-
-### to-markdown
-
-![to-markdown](/assets/to-markdown.webp) <!-- .element: class="image"-->
-
---
-
-### API first components
-
-- Think about the API of your component<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Use CEM and it's tools to share the API<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Editor Support<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Framework integration<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Linting<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Testing<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Happy developers! 🥳🎉<!-- .element: class="fragment fade-in-then-semi-out" -->
-
----
-
 ## Recap
-
-<!-- .slide: data-theme="calm-green" -->
 
 - Lit = Web components + template literals<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Lit labs = additional functionality to create web applications<!-- .element: class="fragment fade-in-then-semi-out" -->
-- CEM = A standard way to describe the API of web components<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
 
 ### Getting started
 
-<!-- .slide: data-theme="blue" -->
+<!-- .slide: data-theme="yellow" -->
 
 <span>💡 [lit.dev](https://lit.dev/) </span> <br ><!-- .element: class="fragment fade-in-then-semi-out" -->
 <span>⚙️ [lit.dev/docs/libraries/labs/](https://lit.dev/docs/libraries/labs/) </span> <br ><!-- .element: class="fragment fade-in-then-semi-out" -->
-<span> 🖊️ [custom-elements-manifest.open-wc.org](https://custom-elements-manifest.open-wc.org/) </span> <br> <!-- .element: class="fragment fade-in" -->
 <span>👋 [github.com/lucienimmink/lit-hello-world](https://github.com/lucienimmink/lit-hello-world) </span> <br ><!-- .element: class="fragment fade-in" -->
 <br>
 <span>📖 [why-lit-is-lit.netlify.app](https://why-lit-is-lit.netlify.app/) </span> <br ><!-- .element: class="fragment fade-in" -->
@@ -986,6 +560,5 @@ export default defineConfig({
 
 Contact me:
 
-![iO logo](/assets/io.svg)<!-- .element: class="icon icon-inline" --> [iodigital.com](https://www.iodigital.com) <br >
 🏢 [linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br >
 🐘 [techhub.social/@lucienimmink](https://techhub.social/@lucienimmink) <br >

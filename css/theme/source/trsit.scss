@@ -13,19 +13,18 @@
 // ---------------------------------------------
 
 @font-face {
-	font-family: "TTCommonsPro";
-	src: url("/assets/fonts/TTCommonsPro-Medium.woff2") format("woff2");
+	font-family: "barlow";
+	src: url("/assets/fonts/barlow-regular-webfont.woff2") format("woff2");
 }
-
 @font-face {
-	font-family: "Reckless";
-	src: url("/assets/fonts/Reckless-RegularItalic.woff2") format("woff2");
+	font-family: "barlow-bold";
+	src: url("/assets/fonts/barlow-bold-webfont.woff2") format("woff2");
 }
 
 // Override theme settings (see ../template/settings.scss)
 
-$mainFont: TTCommonsPro,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-$headingFont: TTCommonsPro,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+$mainFont: barlow, ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+$headingFont: barlow-bold, ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 $codeFont: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
 
 $headingTextTransform: 'initial';
@@ -33,15 +32,17 @@ $headingTextTransform: 'initial';
 $mainColorMuted: rgba(255, 255, 255, 0.5);
 // $headingTextShadow: 0px 0px 6px rgba(0,0,0,0.2);
 // $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
-$heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
+$heading1TextShadow: none;
+$heading1Size: 2.53em;
+$heading2Size: 2em;
 
 // Background generator
 @mixin bodyBackground() {
-	html[data-theme="black"] & {
-		background: black;
-		--r-link-color: white;
-		--r-main-color: white;
-		--r-heading-color: white;
+	html[data-theme="yellow"] & {
+		background: #FFE000;
+		--r-link-color: black;
+		--r-main-color: black;
+		--r-heading-color: black;
 	}
 	html[data-theme="blue"] & {
 		background: #0017ee;
@@ -49,29 +50,17 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 		--r-main-color: white;
 		--r-heading-color: white;
 	}
-	html[data-theme="calm-green"] & {
-		background: #c4d1ce;
-		--r-link-color: black;
+	html[data-theme="black"] & {
+		background: black;
+		--r-link-color: #FFE000;
+		--r-main-color: #FFE000;
+		--r-heading-color: #FFE000;
+	}
+	html[data-theme="white"] & {
+		background: white;
+		--r-link-color: black ;
 		--r-main-color: black;
 		--r-heading-color: black;
-	}
-	html[data-theme="calm-beige"] & {
-		background: #e1cfbf;
-		--r-link-color: black;
-		--r-main-color: black;
-		--r-heading-color: black ;
-	}
-	html[data-theme="calm-pink"] & {
-		background: #dcc8c2;
-		--r-link-color: black;
-		--r-main-color: black;
-		--r-heading-color: black ;
-	}
-	html[data-theme="calm-blue"] & {
-		background: #bdcad1;
-		--r-link-color: black;
-		--r-main-color: black;
-		--r-heading-color: black ;
 	}
 }
 
@@ -85,11 +74,14 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 .reveal {
 	--r-background-color: rgb(36,36,36);
 	--r-muted-color: rgb(196,196,196);
+	h1 {
+		font-weight: bold;
+	}
 	blockquote {
 		font-style: normal;
 		font-family: $mainFont;
 		box-shadow: var(--r-heading1-text-shadow);
-		background-color: rgba(0, 0, 0, 0.15);
+		background-color: rgba(255, 255, 255, 0.15);
 
 		> :before, > :after {
 			content: '"';
@@ -159,14 +151,14 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 	}
 	.circle {
 		border-radius: 50%;
-		box-shadow: var(--r-heading1-text-shadow);
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15);
 	}
 	.image {
 		border-radius: 5px;
-		box-shadow: var(--r-heading1-text-shadow);
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15);
 	}
 	video {
-		box-shadow: var(--r-heading1-text-shadow);
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15);
 		border-radius: 5px;
 	}
 	.w-80 {
@@ -180,6 +172,15 @@ $heading1TextShadow: 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20p
 	}
 	.h-80 {
 		max-height: calc(var(--slide-height) - 4*var(--r-block-margin));
+	}
+	.small {
+		font-size: calc(40px * 0.7);
+	}
+	.browser {
+		width: 100%;
+		height: 550px;
+		transform: translate (-600px, 0) scale(0.7);
+		border: none;
 	}
 }
 
