@@ -32,7 +32,7 @@
 
 --
 
-![Lucien Immink](/assets/lucien-immink.webp)<!-- .element: class="circle" style="max-height: 20vh" -->
+![Lucien Immink](/assets/lucien-2024.jpg)<!-- .element: class="circle" style="max-height: 20vh" -->
 
 ### Principal Consultant @ Team Rockstars IT
 
@@ -539,8 +539,8 @@ export class MyElement extends LitElement {
 
 ## Recap
 
-- Lit = Web components + template literals<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Lit labs = additional functionality to create web applications<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Lit = Web components + template literals + tools to create web-apps<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Lit labs = experiments that might become part of Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
 
