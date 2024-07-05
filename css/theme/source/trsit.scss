@@ -109,6 +109,10 @@ $heading2Size: 2em;
 	pre code:first-child {
 		box-shadow: var(--r-heading1-text-shadow);
 	}
+	.code-bg {
+		padding: 0.1em 0.3em;
+		background-color: rgba(255, 255, 255, 0.15);
+	}
 	em,
 	blockquote em {
 		font-family: 'Reckless', sans-serif;

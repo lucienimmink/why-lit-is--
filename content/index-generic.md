@@ -45,7 +45,6 @@
 - Web, the platform<!-- .element: class="fragment fade-in" -->
 - Lit, the library<!-- .element: class="fragment fade-in" -->
 - Lit Labs, the experiments<!-- .element: class="fragment fade-in" -->
-- Examples<!-- .element: class="fragment fade-in" -->
 
 ---
 
@@ -71,10 +70,6 @@
 --
 
 <!-- .slide: data-background-image="/assets/flash-dead.webp" -->
-
---
-
-# The platform is evolving
 
 --
 
@@ -222,7 +217,7 @@ const person = {
     surname: 'Immink',
     company: 'Team Rockstars IT',
     professions: [ 'Principal Consultant', "Google Developer Expert" ],
-    currentLocation: 'ASML, Veldhoven',
+    currentLocation: 'Frontend Nation',
 }
 ```
 
@@ -246,7 +241,7 @@ String literals
 ```javascript
 const str = 'Hello';
 const multiLineStr = 'Hello\nWorld';
-const json = '{"name":"Lucien","surname":"Immink","company":"Team Rockstars IT","professions":["Principal Consultant","Google Developer Expert"], "currentLocation": "ASML, Veldhoven"}';
+const json = '{"name":"Lucien","surname":"Immink","company":"Team Rockstars IT","professions":["Principal Consultant","Google Developer Expert"], "currentLocation": "Frontend Nation"}';
 const concat = 'Hello ' + type + ' world';
 ```
 
@@ -531,144 +526,6 @@ export class MyElement extends LitElement {
   <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> my-element.ts
 </p><!-- .element: class="filename" -->
 
---
-
-### Context
-
-Context is very similar to React's Context, or to dependency injection systems like Angular's.<!-- .element: class="fragment fade-in-then-semi-out" -->
-
-`npm i @lit/context`<!-- .element: class="fragment fade-in-then-semi-out code-bg" -->
-
---
-
-### Context example
-
-Using context involves a context object (sometimes called a key), a _provider_ and a _consumer_, which communicate using the context object.
-
-```typescript
-import {createContext} from '@lit/context';
-import type {Logger} from 'my-logging-library';
-export type {Logger} from 'my-logging-library';
-export const loggerContext = createContext<Logger>('logger');
-```
-
-<p>
-  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> logger-context.ts
-</p><!-- .element: class="filename" -->
-
---
-
-### Context provider
-
-```typescript[0|2, 5, 10, 11]
-import {LitElement, property, html} from 'lit';
-import {provide} from '@lit/context';
-
-import {Logger} from 'my-logging-library';
-import {loggerContext} from './logger-context.js';
-
-@customElement('my-app')
-class MyApp extends LitElement {
-
-  @provide({context: loggerContext})
-  logger = new Logger();
-
-  render() {
-    return html`...`;
-  }
-}
-```
-
-<p>
-  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> logger-provider.ts
-</p><!-- .element: class="filename" -->
-
---
-
-### Context consumer
-
-```typescript[0|2,4,8,13]
-import {LitElement, property} from 'lit';
-import {consume} from '@lit/context';
-
-import {type Logger, loggerContext} from './logger-context.js';
-
-export class MyElement extends LitElement {
-
-  @consume({context: loggerContext})
-  @property({attribute: false})
-  public logger?: Logger;
-
-  private doThing() {
-    this.logger?.log('A thing was done');
-  }
-}
-```
-
-<p>
-  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> logger-consumer.ts
-</p><!-- .element: class="filename" -->
-
---
-
-### Async tasks
-
-Task is a controller that takes an async task function and runs it either manually or automatically when its arguments change.<!-- .element: class="fragment fade-in-then-semi-out" -->
-
-`npm i @lit/task`<!-- .element: class="fragment fade-in-then-semi-out code-bg" -->
-
---
-
-### Task example
-
-```typescript[0|1,6-13|16-23]
-import {Task} from '@lit/task';
-
-class MyElement extends LitElement {
-  @property() productId?: string;
-
-  private _productTask = new Task(this, {
-    task: async ([productId], {signal}) => {
-      const response = await fetch(`http://example.com/product/${productId}`, {signal});
-      if (!response.ok) { throw new Error(response.status); }
-      return response.json() as Product; 
-    },
-    args: () => [this.productId]
-  });
-
-  render() {
-    return this._productTask.render({
-      pending: () => html`<p>Loading product...</p>`,
-      complete: (product) => html`
-          <h1>${product.name}</h1>
-          <p>${product.price}</p>
-        `,
-      error: (e) => html`<p>Error: ${e}</p>`
-    });
-  }
-}
-```
-
-<p>
-  <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> async-task.ts
-</p><!-- .element: class="filename" -->
-
---
-
-### Scaffold project
-
-Lit ❤️ Vite
-
-```bash
-  npm create vite@latest my-lit-app -- --template lit-ts
-```
-
-or
-
-```bash
-  yarn create vite@latest my-lit-app --template lit-ts
-```
-
 ---
 
 ## Lit Labs
@@ -680,39 +537,10 @@ or
 
 --
 
-### Overview of lit-labs
-
-- motion; animation helpers<!-- .element: class="fragment fade-in-then-semi-out" -->
-- observers; platform observers<!-- .element: class="fragment fade-in-then-semi-out" -->
-- ssr; server-side rendering<!-- .element: class="fragment fade-in-then-semi-out" -->
-- testing; testing utilities<!-- .element: class="fragment fade-in-then-semi-out" -->
-- virtualizer; viewport-based virtualization<!-- .element: class="fragment fade-in-then-semi-out" -->
-- compiler; optimize Lit templates<!-- .element: class="fragment fade-in-then-semi-out" -->
-- router; component-oriented router<!-- .element: class="fragment fade-in-then-semi-out" -->
-
----
-
-## Examples
-
-- ING Lion<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Shoelace/Web Awesome<!-- .element: class="fragment fade-in-then-semi-out" -->
-- red-hat-design-system<!-- .element: class="fragment fade-in-then-semi-out" -->
-- material-components<!-- .element: class="fragment fade-in-then-semi-out" -->
-- &lt;api-viewer&gt;<!-- .element: class="fragment fade-in-then-semi-out" -->
-- &lt;json-viewer&gt;<!-- .element: class="fragment fade-in-then-semi-out" -->
-- &lt;granite-qrcode-generator&gt;<!-- .element: class="fragment fade-in-then-semi-out" -->
-- photoshop online<!-- .element: class="fragment fade-in-then-semi-out" -->
-- JSMusicDB 😉<!-- .element: class="fragment fade-in-then-semi-out" -->
-
----
-
 ## Recap
 
-- The web platform is very powerful and optimized<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Web components + template literals = Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
-- Lit has tools to create web-apps or single components<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Lit = Web components + template literals + tools to create web-apps<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Lit labs = experiments that might become part of Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
-- More and more companies and teams are using Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
 
@@ -732,5 +560,5 @@ or
 
 Contact me:
 
-📧 [lucien.immink@asml.com](mailto:lucien.immink@asml.com) <br >
 🏢 [linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br >
+🐘 [techhub.social/@lucienimmink](https://techhub.social/@lucienimmink) <br >
