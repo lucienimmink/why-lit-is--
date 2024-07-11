@@ -697,12 +697,12 @@ or
 - ING Lion<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Shoelace/Web Awesome<!-- .element: class="fragment fade-in-then-semi-out" -->
 - red-hat-design-system<!-- .element: class="fragment fade-in-then-semi-out" -->
-- material-components<!-- .element: class="fragment fade-in-then-semi-out" -->
+- asml-design-system 💡<!-- .element: class="fragment fade-in-then-semi-out" -->
 - &lt;api-viewer&gt;<!-- .element: class="fragment fade-in-then-semi-out" -->
-- &lt;json-viewer&gt;<!-- .element: class="fragment fade-in-then-semi-out" -->
 - &lt;granite-qrcode-generator&gt;<!-- .element: class="fragment fade-in-then-semi-out" -->
-- photoshop online<!-- .element: class="fragment fade-in-then-semi-out" -->
-- JSMusicDB 😉<!-- .element: class="fragment fade-in-then-semi-out" -->
+- &lt;asml-plot&gt; 🤔<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Photoshop online<!-- .element: class="fragment fade-in-then-semi-out" -->
+- iACT 🔮<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
 
