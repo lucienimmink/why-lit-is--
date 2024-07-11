@@ -102,7 +102,7 @@ function addElement() {
   const newDiv = document.createElement("div");
 
   // and give it some content
-  const newContent = document.createTextNode("Hello Munich");
+  const newContent = document.createTextNode("Hello Veldhoven");
 
   // add the text node to the newly created div
   newDiv.appendChild(newContent);
@@ -324,7 +324,7 @@ export class HelloWorld extends LitElement {
 <html lang="en">
   <body>
     <hello-world type="amazing"></hello-world>
-    <script src="hello-world.js"></script>
+    <script type="module" src="hello-world.js"></script>
   </body>
 </html>
 ```
