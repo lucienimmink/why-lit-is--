@@ -222,7 +222,7 @@ const person = {
     surname: 'Immink',
     company: 'Team Rockstars IT',
     professions: [ 'Principal Consultant', "Google Developer Expert" ],
-    currentLocation: 'ASML, Veldhoven',
+    currentLocation: 'Devcamp.hamburg',
 }
 ```
 
@@ -246,7 +246,7 @@ String literals
 ```javascript
 const str = 'Hello';
 const multiLineStr = 'Hello\nWorld';
-const json = '{"name":"Lucien","surname":"Immink","company":"Team Rockstars IT","professions":["Principal Consultant","Google Developer Expert"], "currentLocation": "ASML, Veldhoven"}';
+const json = '{"name":"Lucien","surname":"Immink","company":"Team Rockstars IT","professions":["Principal Consultant","Google Developer Expert"], "currentLocation": "Devcamp.hamburg"}';
 const concat = 'Hello ' + type + ' world';
 ```
 
@@ -684,6 +684,7 @@ or
 
 - motion; animation helpers<!-- .element: class="fragment fade-in-then-semi-out" -->
 - observers; platform observers<!-- .element: class="fragment fade-in-then-semi-out" -->
+- signals; TC39 Signals<!-- .element: class="fragment fade-in-then-semi-out" -->
 - ssr; server-side rendering<!-- .element: class="fragment fade-in-then-semi-out" -->
 - testing; testing utilities<!-- .element: class="fragment fade-in-then-semi-out" -->
 - virtualizer; viewport-based virtualization<!-- .element: class="fragment fade-in-then-semi-out" -->
@@ -697,12 +698,9 @@ or
 - ING Lion<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Shoelace/Web Awesome<!-- .element: class="fragment fade-in-then-semi-out" -->
 - red-hat-design-system<!-- .element: class="fragment fade-in-then-semi-out" -->
-- asml-design-system 💡<!-- .element: class="fragment fade-in-then-semi-out" -->
 - &lt;api-viewer&gt;<!-- .element: class="fragment fade-in-then-semi-out" -->
 - &lt;granite-qrcode-generator&gt;<!-- .element: class="fragment fade-in-then-semi-out" -->
-- &lt;asml-plot&gt; 🤔<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Photoshop online<!-- .element: class="fragment fade-in-then-semi-out" -->
-- iACT 🔮<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
 
@@ -732,5 +730,5 @@ or
 
 Contact me:
 
-📧 [lucien.immink@asml.com](mailto:lucien.immink@asml.com) <br >
+📧 [lucien.immink@teamrockstars.nl](mailto:lucien.immink@teamrockstars.nl) <br >
 🏢 [linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br >
