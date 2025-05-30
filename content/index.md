@@ -526,6 +526,22 @@ export class MyElement extends LitElement {
   <img src="/assets/icons/typescript.svg" class="icon icon-inline" alt=""> my-element.ts
 </p><!-- .element: class="filename" -->
 
+--
+
+### Scaffold project
+
+Lit ❤️ Vite
+
+```bash
+  npm create vite@latest my-lit-app -- --template lit-ts
+```
+
+or
+
+```bash
+  yarn create vite@latest my-lit-app --template lit-ts
+```
+
 ---
 
 ## Lit Labs
@@ -537,9 +553,24 @@ export class MyElement extends LitElement {
 
 --
 
+### Overview of lit-labs
+
+- motion; animation helpers<!-- .element: class="fragment fade-in-then-semi-out" -->
+- signals; TC39 Signals<!-- .element: class="fragment fade-in-then-semi-out" -->
+- ssr; server-side rendering<!-- .element: class="fragment fade-in-then-semi-out" -->
+- testing; testing utilities<!-- .element: class="fragment fade-in-then-semi-out" -->
+- virtualizer; viewport-based virtualization<!-- .element: class="fragment fade-in-then-semi-out" -->
+- compiler; optimize Lit templates<!-- .element: class="fragment fade-in-then-semi-out" -->
+- router; component-oriented router<!-- .element: class="fragment fade-in-then-semi-out" -->
+- ... and many more<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+--
+
 ## Recap
 
-- Lit = Web components + template literals + tools to create web-apps<!-- .element: class="fragment fade-in-then-semi-out" -->
+- The web platform is very powerful and optimized<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Web components + template literals = Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Lit has tools to create web-apps or single components<!-- .element: class="fragment fade-in-then-semi-out" -->
 - Lit labs = experiments that might become part of Lit<!-- .element: class="fragment fade-in-then-semi-out" -->
 
 ---
@@ -556,9 +587,11 @@ export class MyElement extends LitElement {
 
 ---
 
+<!-- .slide: data-theme="black" -->
 ## Thank you
 
 Contact me:
 
+🏭 [www.teamrockstars.nl](https://www.teamrockstars.nl/) <br >
 🏢 [linkedin.com/in/lucien-immink](https://www.linkedin.com/in/lucien-immink/) <br >
-🐘 [techhub.social/@lucienimmink](https://techhub.social/@lucienimmink) <br >
+📧 [lucien.immink@teamrockstars.nl](mailto://lucien.immink@teamrockstars.nl) <br >
