@@ -217,7 +217,7 @@ const person = {
     surname: 'Immink',
     company: 'Team Rockstars IT',
     professions: [ 'Principal Consultant', "Google Developer Expert" ],
-    currentLocation: 'techcamp.hamburg',
+    currentLocation: 'TechHouse @ Rabobank',
 }
 ```
 
@@ -241,7 +241,7 @@ String literals
 ```javascript
 const str = 'Hello';
 const multiLineStr = 'Hello\nWorld';
-const json = '{"name":"Lucien","surname":"Immink","company":"Team Rockstars IT","professions":["Principal Consultant","Google Developer Expert"], "currentLocation": "techcamp.hamburg"}';
+const json = '{"name":"Lucien","surname":"Immink","company":"Team Rockstars IT","professions":["Principal Consultant","Google Developer Expert"], "currentLocation": "TechHouse @ Rabobank"}';
 const concat = 'Hello ' + type + ' world';
 ```
 
